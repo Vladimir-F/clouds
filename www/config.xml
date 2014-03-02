@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://cloudscanspeak.net"
         xmlns:gap = "http://cloudscanspeak.net"
-        id        = "com.phonegap.clouds-can-speak"
+        id        = "com.phonegap.clouds"
         version   = "1.0.0">
 
     <name>Clouds Can Speak</name>
