@@ -1,78 +1,175 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Coluds Can Speak Radio</title>
+	
+<!-- Mirrored from cloudscanspeak.net/ by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 26 Feb 2014 07:24:47 GMT -->
+<head>
+		<title>Clouds Can Speak</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="radio internet techno dub deep minimal anri" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+        <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mb.miniPlayer.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/miniplayer.css" title="style"  media="screen"/>
+
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
+	    <script type="text/javascript">
+
+        $(function(){
+
+            if (self.location.href == top.location.href){
+                $("body").css({font:"normal 13px/16px 'trebuchet MS', verdana, sans-serif"});
+                var logo=$("<a href='http://pupunzi.com/'><img id='logo' border='0' src='http://pupunzi.com/images/logo.png' alt='mb.ideas.repository' style='display:none;'></a>").css({position:"absolute", top:10, left:10});
+                $(".wrapper").prepend(logo);
+                $("#logo").fadeIn();
+            }
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = /android/.test(ua);
+            var isAndroidDefault = isAndroid && !(/chrome/i).test(ua);
+
+            if(isAndroidDefault){
+                alert("Sorry, your browser does not support this implementation of the player. It will be used the standard HTML5 audio player instead")
+            }
+
+            $(".audio").mb_miniPlayer({
+                width:240,
+                inLine:false,
+                id3:true,
+                downloadPage:null
+//              downloadPage:"map_download.php"
+            });
+
+        });
+
+        </script>
     </head>
-    <body>
-        <div class="app">
-            <h1>Clouds Can Speak</h1>
-            
-          <div id="play_button">
-              <a href="#" onClick = "playStream();">Lisen Now</a>
-         </div>          
-            
-        </div>
-        
-        <script type="text/javascript">
-            var myaudio
-            
-            var music_player = document.getElementById("play_button");
-            music_player.play();
-            
-            function playStream() {
-              
-              try {
-                myaudio = new Audio('http://cloudscanspeak.net:8000/clouds');
-                myaudio.id = 'playerMyAdio';
-                myaudio.play();
-                  setToPause();
-              } catch (e) {
-                alert('no audio support!');
-              } 
-            }
-            
-            function pauseStream() {
-                myaudio.pause();
-                setToPlay();
-            }
-            
-            function setToPause() {
-              var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"pauseStream();\">Pause</a>";
-            }
-            
-            function setToPlay() {
-              var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\">Play</a>";
-            }
-            
-        </script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+	<body class="homepage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo">
+					<div>
+						Clouds Can Speak
+						<span class="byline">online radio station</span>
+					</div>
+				</div>
+			</header>
+		<!-- /Header -->
+
+	 
+			<nav id="nav" class="skel-panels-fixed">
+				<ul>
+					<li class="current_page_item"><a href="#">Home</a></li>
+					<li><a href="#main">Guests</a></li>
+					<li><a href="#footer">Media</a></li>
+					
+                    <div align="right"><a id="m9" class="audio
+{skin:'grey',autoPlay:false, inLine:true, showControls:true, showVolumeLevel:true, showRew:true,
+showTime:false, width:300, addShadow:false}"
+href="http://cloudscanspeak.net:8000/clouds">Streaming...</a> 
+                    </div>
+            </nav>
+		
+			<!-- Banner -->
+			<div id="banner-wrapper">
+				<section id="banner">
+					<h2>deep.dub.techno.</h2>
+					<span class="byline">
+                   
+                    </span>
+					<a href="clouds.pls" class="button">Add To Your Player</a>
+
+				</section>
+			</div>
+		<!-- /Banner -->
+
+		<!-- Main -->
+			<div id="main-wrapper">
+				<div id="main" class="container">
+					<div class="row">
+						<div class="12u">
+							
+							<!-- Highlight -->
+								<section class="is-highlight">
+									<header>
+										<h2>Special guests on mondays (9PM GMT+4)</h2>
+										<span class="byline">February, 17th. Our oldtimers - Rehabitation and Luk!</span>
+									</header>
+									<p>
+									While the winter still has a lot of teeth to show us, our old friend Rehabitation offers a warm up with the spring's vibe, journey in the mood of forthcoming (and neverending) green season. “Meanwhile in May” is a smooth  and soulful half-hour off the routine days which brings us a chance to take a deep breath, lean back and uncover ‘hopeless romantic’ part of soul for a while..
+                                    </p>
+									<p>
+									"Rückgriff" is a word from another old buddy - Luk, seasoned vinyl spinner who always prefer to stay closer to the strict minimalistische musik with deep and melancholic flavour. Works well for walk and trip. No autosync, only hands and ears control!
+									</p>
+								</section>
+							<!-- /Highlight -->
+
+						</div>
+					</div>
+
+
+		<!-- Footer -->
+			<footer id="footer" class="container">
+				<div class="row">
+					<div class="12u">
+						<!-- Media -->
+							<section>
+								<h2 class="major"><span>Selected Media</span></h2>
+								<p>
+								<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/23134991&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
+								</p>
+							    <p>
+                                  Contact us: cloudscanspeak [at] Gmail dot com  
+                                </p>
+                            </section>
+						<!-- /About -->
+					</div>
+				</div>
+            	<div class="row">
+						<!-- Contact -->
+                        <!-- /Contact -->
+				</div>
+
+			</footer>
+		<!-- /Footer -->
+<script type="text/javascript">
+
+var make_button_active = function()
+{
+  //Get item siblings
+  var siblings =($(this).siblings());
+  //Remove active class on all buttons
+  siblings.each(function (index)
+    {
+      $(this).removeClass('current_page_item');
+    }
+  )
+
+  //Add the clicked button class
+  $(this).addClass('current_page_item');
+}
+
+//Attach events to menu
+$(document).ready(
+  function()
+  {
+    $(".skel-panels-fixed li").click(make_button_active);
+  }  
+)
+
+</script>	
+</body>
+
+<!-- Mirrored from cloudscanspeak.net/ by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 26 Feb 2014 07:24:50 GMT -->
 </html>
