@@ -37,6 +37,7 @@
         
         <script type="text/javascript">
             var myaudio
+            var ButtonImagePlay = "../img/b_play.png";
             
             var music_player = document.getElementById("play_button");
             music_player.play({ playAudioWhenScreenIsLocked : true });
@@ -65,7 +66,7 @@
             
             function setToPlay() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\">Play</a>";
+                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\"><img src=\"../www/img/b_play.png\"</a>";
             }
             
         </script>
