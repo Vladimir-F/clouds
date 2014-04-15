@@ -30,7 +30,7 @@
             <h1>Clouds Can Speak</h1>
             
           <div id="play_button">
-              <a href="#" onClick = "playStream();">Lisen Now</a>
+              <a href="#" onClick = "playStream();"><img src="../www/img/b_play.png"></a>
          </div>          
             
         </div>
@@ -60,18 +60,19 @@
             
             function setToPause() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"pauseStream();\">Pause</a>";
+                playButton.innerHTML = "<a href=\"#\" onClick = \"pauseStream();\"><img src=\"../www/img/b_pause.png\"><img src=\"../www/img/equalizer-1.gif\"></a>"
             }
             
             function setToPlay() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\"><img src=\"../www/img/b_play.png\"><img src=\"../www/img/equalizer-1.gif\"></a>"
+                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\"><img src=\"../www/img/b_play.png\"></a>"
             }
             
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
+            window.plugin.backgroundMode.enable();
             app.initialize();
         </script>
     </body>
