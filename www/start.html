@@ -348,54 +348,5 @@
         <iframe id="expandFrame" src="resources/expand.html" width="100%" height="100%" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
     </div>
 
-    <div class="app">
-            <h1>Clouds Can Speak</h1>
-            
-          <div id="play_button">
-              <a href="#" onClick = "playStream();">Lisen Now</a>
-         </div>          
-            
-        </div>
-        
-        <script type="text/javascript">
-            var myaudio
-            
-            var music_player = document.getElementById("play_button");
-            music_player.play({ playAudioWhenScreenIsLocked : true });
-            
-            function playStream() {
-              
-              try {
-                myaudio = new Audio('http://cloudscanspeak.net:8000/clouds');
-                myaudio.id = 'playerMyAdio';
-                myaudio.play();
-                  setToPause();
-              } catch (e) {
-                alert('no audio support!');
-              } 
-            }
-            
-            function pauseStream() {
-                myaudio.pause();
-                setToPlay();
-            }
-            
-            function setToPause() {
-              var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"pauseStream();\">Pause</a>";
-            }
-            
-            function setToPlay() {
-              var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\"><img src=\"../www/img/b_play.png\"></a>";
-            }
-            
-        </script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-
 </body>
 </html>
