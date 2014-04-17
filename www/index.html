@@ -31,20 +31,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Coluds Can Speak Radio</title>
-        <script type="text/javascript">
-            window.WebSocket = window.WebSocket || window.MozWebSocket;
-            if(window.WebSocket) {
-            document.getElementById("nowplaying").innerHTML="YES";
-            var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            ws.onmessage = function (evt) {
-                    document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
-                }
-            }else {
-            document.getElementById("nowplaying").innerHTML="Now playing: oopps";
-            }
         
-
-        </script>
     </head>
     <body>
         <div class="app">
@@ -96,6 +83,20 @@
                 playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\"><img src=\"../www/img/b_play.png\"></a>"
             }
             
+        </script>
+        <script type="text/javascript">
+            window.WebSocket = window.WebSocket || window.MozWebSocket;
+            if(window.WebSocket) {
+            document.getElementById("nowplaying").innerHTML="YES";
+            var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
+            ws.onmessage = function (evt) {
+                    document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
+                }
+            }else {
+            document.getElementById("nowplaying").innerHTML="Now playing: oopps";
+            }
+        
+
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
