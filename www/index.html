@@ -50,6 +50,7 @@
         <script type="text/javascript">
             window.WebSocket = window.WebSocket || window.MozWebSocket;
         if(window.WebSocket) {
+            document.getElementById("nowplaying").innerHTML="YES";
             var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
             ws.onmessage = function (evt) {
                     document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
