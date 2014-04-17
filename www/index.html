@@ -54,6 +54,8 @@
             ws.onmessage = function (evt) {
                     document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
                 }
+        }else {
+            alert("Websocket not supported");
         }
         
 
