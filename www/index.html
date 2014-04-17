@@ -18,6 +18,13 @@
     under the License.
 -->
 <html>
+
+<style>
+#nowplaying { 
+    background-color: white; 
+}
+</style>
+
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -32,8 +39,25 @@
           <div id="play_button">
               <a href="#" onClick = "playStream();"><img src="../www/img/b_play.png"></a>
          </div>          
-            
+         
+            <span class="byline">
+                <div id="nowplaying">
+                </div>
+            </span>
+
         </div>
+        
+        <script type="text/javascript">
+            window.WebSocket = window.WebSocket || window.MozWebSocket;
+        if(window.WebSocket) {
+            var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
+            ws.onmessage = function (evt) {
+                    document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
+                }
+        }
+        
+
+        </script>
         
         <script type="text/javascript">
             var myaudio
