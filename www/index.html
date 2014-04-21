@@ -32,23 +32,6 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Coluds Can Speak Radio</title>
 
-        
-    </head>
-    <body>
-
-        <div class="app">
-            <h1 style="background-color:white;">Clouds Can Speak</h1>
-            
-          <div id="play_button">
-              <a href="#" onClick = "playStream();"><img src="../www/img/b_play.png"></a>
-         </div>          
-         
-            <span class="byline">
-                <div id="nowplaying">
-                </div>
-            </span>
-
-        </div>
         <script>
             
             function checkConnection() {
@@ -66,11 +49,29 @@
 
             alert('Connection type: ' + states[networkState]);
             
-            alert('Привет');
                                         }
             checkConnection();
 
         </script>
+
+        
+    </head>
+    <body>
+
+        <div class="app">
+            <h1 style="background-color:white;">Clouds Can Speak</h1>
+            
+          <div id="play_button">
+              <a href="#" onClick = "playStream();"><img src="../www/img/b_play.png"></a>
+         </div>          
+         
+            <span>
+                <div id="nowplaying">
+                </div>
+            </span>
+
+        </div>
+
         <script type="text/javascript">
             var myaudio
             var music_player = document.getElementById("play_button");
