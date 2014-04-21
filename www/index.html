@@ -48,15 +48,17 @@
             states[Connection.NONE]     = 'No network connection';
 
             alert('Connection type: ' + states[networkState]);
+            alert('Done');
             
                                         }
-            checkConnection();
 
+        checkConnection();
         </script>
 
-        
     </head>
     <body>
+
+        <input type="button" onclick="checkConnection()" value="Call function"> </input>
 
         <div class="app">
             <h1 style="background-color:white;">Clouds Can Speak</h1>
