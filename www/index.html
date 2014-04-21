@@ -32,29 +32,6 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Coluds Can Speak Radio</title>
 
-        <script>
-            
-            function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            var states = {};
-            states[Connection.UNKNOWN]  = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI]     = 'WiFi connection';
-            states[Connection.CELL_2G]  = 'Cell 2G connection';
-            states[Connection.CELL_3G]  = 'Cell 3G connection';
-            states[Connection.CELL_4G]  = 'Cell 4G connection';
-            states[Connection.CELL]     = 'Cell generic connection';
-            states[Connection.NONE]     = 'No network connection';
-
-            alert('Connection type: ' + states[networkState]);
-            alert('Done');
-            
-                                        }
-
-        checkConnection();
-        </script>
-
     </head>
     <body>
 
@@ -67,12 +44,8 @@
               <a href="#" onClick = "playStream();"><img src="../www/img/b_play.png"></a>
          </div>          
          
-            <span>
-                <div id="nowplaying">
-                </div>
-            </span>
-
-        </div>
+        
+        <div id="nowplaying"></div>
 
         <script type="text/javascript">
             var myaudio
@@ -120,6 +93,27 @@
             document.getElementById("nowplaying").innerHTML="Now playing: oopps";
             }
         </script>
+
+        <script>
+            function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+            
+                                        }
+        checkConnection();
+        </script>
+
 
          <script type="text/javascript" src="phonegap.js"></script>
          <script type="text/javascript" src="js/index.js"></script>
