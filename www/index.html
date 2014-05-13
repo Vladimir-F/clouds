@@ -68,10 +68,11 @@
                     }
                 }
             } 
+            addLoadEvent(checkConnection);
             
             //addLoadEvent (app.initialize);
-            addLoadEvent (window.plugin.backgroundMode.enable);
-            addLoadEvent(checkConnection);
+            window.plugin.backgroundMode.enable();
+            
             //music_player.play({ playAudioWhenScreenIsLocked: true });
         </script>
 
