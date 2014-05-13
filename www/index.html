@@ -37,7 +37,7 @@
             function checkConnection() {
             var networkState = navigator.connection.type;
             
-            void states = {};
+            var states = {};
             states[Connection.UNKNOWN]  = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
             states[Connection.WIFI]     = 'WiFi connection';
@@ -45,26 +45,41 @@
             states[Connection.CELL_3G]  = 'Cell 3G connection';
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
-            states[Connection.NONE]     = 'No network connection';
-            document.getElementById("net_stat").innerHTML= states[networkState]; 
+            states[Connection.NONE]     = 'No network connection'; 
+            document.getElementById("net_stat").innerHTML= states[networkState];                            
                                         }
 
         </script>
 
+<!--        <script>
+        //test function
+
+        function simple(){
+            alert('ok');
+        };
+        </script>
+-->
 
     </head>
   
     <body>
 
+        <script>
+        window.onload=function(){
+            app.initialize();
+            window.plugin.backgroundMode.enable();
+            music_player.play({ playAudioWhenScreenIsLocked: true });
+            checkConnection();
+
+        };
+        </script>
+<!--
         <script type="text/javascript">
-            onLoad.checkConnection();
             window.plugin.backgroundMode.enable();
             app.initialize();
             music_player.play({ playAudioWhenScreenIsLocked: true });
-            window.plugin.backgroundMode.enable();
-
-        </script>
-
+            </script>
+-->
  <!--       <input type="button" onclick="checkConnection()" value="Call function"> </input> -->
 
         <div class="app">
@@ -116,9 +131,11 @@
         <script type="text/javascript">
             window.WebSocket = window.WebSocket || window.MozWebSocket;
             if(window.WebSocket) {
-            document.getElementById("nowplaying").innerHTML="YES";
+
+            <!-- document.getElementById("nowplaying").innerHTML="YES"; -->
+            
             var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            ws.onLoad = function (evt) {
+            ws.onmessage = function (evt) {
                 document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
                 }
                 }else {
