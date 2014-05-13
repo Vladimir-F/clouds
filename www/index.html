@@ -33,10 +33,10 @@
         <title>Coluds Can Speak Radio</title>
 
         <script>
-            
+            alert('ok');
             function checkConnection() {
             var networkState = navigator.connection.type;
-
+            
             var states = {};
             states[Connection.UNKNOWN]  = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
@@ -46,10 +46,8 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection';
-
-            document.getElementById("net_stat").innerHTML= states[networkState];
-            
                                         }
+            document.getElementById("net_stat").innerHTML= states[networkState];
         </script>
 
 
