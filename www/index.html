@@ -32,27 +32,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Coluds Can Speak Radio</title>
 
-        <script>
-            
-            function checkConnection() {
-            var networkState = navigator.connection.type;
 
-            var states = {};
-            states[Connection.UNKNOWN]  = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI]     = 'WiFi connection';
-            states[Connection.CELL_2G]  = 'Cell 2G connection';
-            states[Connection.CELL_3G]  = 'Cell 3G connection';
-            states[Connection.CELL_4G]  = 'Cell 4G connection';
-            states[Connection.CELL]     = 'Cell generic connection';
-            states[Connection.NONE]     = 'No network connection';
-
-            alert('Connection type: ' + states[networkState]);
-            document.getElementById("net_stat").innerHTML= states[networkState];
-            
-                                        }
-        
-        </script>
 
 
     </head>
@@ -67,7 +47,7 @@
             window.plugin.backgroundMode.enable();
         </script>
 
-        <input type="button" onclick="checkConnection()" value="Call function"> </input>
+ <!--       <input type="button" onclick="checkConnection()" value="Call function"> </input> -->
 
         <div class="app">
             <h1 style="background-color:white;">Clouds Can Speak</h1>
@@ -127,6 +107,27 @@
                 document.getElementById("nowplaying").innerHTML="Now playing: oopps";
                 }
         </script>
+        <script>
+            
+            function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            document.getElementById("net_stat").innerHTML= states[networkState];
+            
+                                        }
+        
+        </script>
+
 
     </body>
 </html>
