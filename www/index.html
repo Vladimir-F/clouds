@@ -46,7 +46,8 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection'; 
-            document.getElementById("net_stat").innerHTML= states[networkState];                            
+            document.getElementById("net_stat").innerHTML= states[networkState];
+            alert('ok');                            
                                         }
 
         </script>
@@ -71,17 +72,15 @@
   
     <body>
 
+        <script type="text/javascript">
+            //window.onload=app.initialize();
+            //app.initialize();
+            //window.plugin.backgroundMode.enable();
+            //music_player.play({ playAudioWhenScreenIsLocked: true });
+            </script>
+        
         <script>
-            
-            window.onload=function(){
-            app.initialize();
-            window.plugin.backgroundMode.enable();
-            music_player.play({ playAudioWhenScreenIsLocked: true });
-            checkConnection();
-            simple();
-            simple_2();
-
-            };
+        checkConnection();
         </script>
 <!--
         <script type="text/javascript">
