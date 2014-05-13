@@ -32,7 +32,25 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Coluds Can Speak Radio</title>
 
+        <script>
+            
+            function checkConnection() {
+            var networkState = navigator.connection.type;
 
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            document.getElementById("net_stat").innerHTML= states[networkState];
+            
+                                        }
+        </script>
 
 
     </head>
@@ -107,27 +125,7 @@
                 document.getElementById("nowplaying").innerHTML="Now playing: oopps";
                 }
         </script>
-        <script>
-            
-            function checkConnection() {
-            var networkState = navigator.connection.type;
-
-            var states = {};
-            states[Connection.UNKNOWN]  = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI]     = 'WiFi connection';
-            states[Connection.CELL_2G]  = 'Cell 2G connection';
-            states[Connection.CELL_3G]  = 'Cell 3G connection';
-            states[Connection.CELL_4G]  = 'Cell 4G connection';
-            states[Connection.CELL]     = 'Cell generic connection';
-            states[Connection.NONE]     = 'No network connection';
-
-            document.getElementById("net_stat").innerHTML= states[networkState];
-            
-                                        }
         
-        </script>
-
 
     </body>
 </html>
