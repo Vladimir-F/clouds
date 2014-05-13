@@ -80,7 +80,8 @@
             </script>
         
         <script>
-        checkConnection();
+        
+        window.onload=checkConnection;
         </script>
 <!--
         <script type="text/javascript">
@@ -113,6 +114,7 @@
                 myaudio.id = 'playerMyAdio';
                 myaudio.play();
                   setToPause();
+                  checkConnection();
               } catch (e) {
                 alert('no audio support!');
               } 
