@@ -46,8 +46,11 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection'; 
-            document.getElementById("net_stat").innerHTML= states[networkState];                            
-                                        }
+            
+            if (states[networkState] != 'WiFi connection') {
+            document.getElementById("net_stat").innerHTML= states[networkState];                
+                                    }
+            }
         </script>
 
     </head>
@@ -69,11 +72,6 @@
                 }
             } 
             addLoadEvent(checkConnection);
-            
-            //addLoadEvent (app.initialize);
-            window.plugin.backgroundMode.enable();
-            
-            //music_player.play({ playAudioWhenScreenIsLocked: true });
         </script>
 
  <!--       <input type="button" onclick="checkConnection()" value="Call function"> </input> -->
@@ -139,6 +137,12 @@
                 }
         </script>
         
+        <script type="text/javascript">
+            app.initialize();
+            window.plugin.backgroundMode.enable();
+            music_player.play({ playAudioWhenScreenIsLocked: true });
+        </script>
+
 
     </body>
 </html>
