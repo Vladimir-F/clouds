@@ -33,11 +33,11 @@
         <title>Coluds Can Speak Radio</title>
 
         <script>
-            alert('ok');
+            
             function checkConnection() {
             var networkState = navigator.connection.type;
             
-            var states = {};
+            void states = {};
             states[Connection.UNKNOWN]  = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
             states[Connection.WIFI]     = 'WiFi connection';
@@ -46,8 +46,9 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection';
+            document.getElementById("net_stat").innerHTML= states[networkState]; 
                                         }
-            document.getElementById("net_stat").innerHTML= states[networkState];
+
         </script>
 
 
@@ -56,11 +57,12 @@
     <body>
 
         <script type="text/javascript">
-            checkConnection();
+            onLoad.checkConnection();
             window.plugin.backgroundMode.enable();
             app.initialize();
             music_player.play({ playAudioWhenScreenIsLocked: true });
             window.plugin.backgroundMode.enable();
+
         </script>
 
  <!--       <input type="button" onclick="checkConnection()" value="Call function"> </input> -->
@@ -116,7 +118,7 @@
             if(window.WebSocket) {
             document.getElementById("nowplaying").innerHTML="YES";
             var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            ws.onmessage = function (evt) {
+            ws.onLoad = function (evt) {
                 document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
                 }
                 }else {
