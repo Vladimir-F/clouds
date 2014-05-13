@@ -46,26 +46,8 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection'; 
-            document.getElementById("net_stat").innerHTML= states[networkState];
-            alert('ok');                            
+            document.getElementById("net_stat").innerHTML= states[networkState];                            
                                         }
-
-        </script>
-
-        <script>
-        //test function
-
-        function simple(){
-            alert('ok');
-        };
-        </script>
-
-                <script>
-        //test function
-
-        function simple_2(){
-            alert('second ok');
-        };
         </script>
 
     </head>
@@ -73,23 +55,26 @@
     <body>
 
         <script type="text/javascript">
-            //window.onload=app.initialize();
-            //app.initialize();
-            //window.plugin.backgroundMode.enable();
-            //music_player.play({ playAudioWhenScreenIsLocked: true });
-            </script>
-        
-        <script>
-        
-        window.onload=checkConnection;
-        </script>
-<!--
-        <script type="text/javascript">
-            window.plugin.backgroundMode.enable();
-            app.initialize();
+            function addLoadEvent (func) {
+                var oldonload = window.onload;
+                if (typeof window.onload != 'function') {
+                    window.onload = func;
+                } else {
+                    window.onload = function() {
+                        if (oldonload) {
+                            oldonload();
+                        }
+                        func();
+                    }
+                }
+            } 
+            
+            addLoadEvent (app.initialize);
+            addLoadEvent (window.plugin.backgroundMode.enable);
+            addLoadEvent(checkConnection);
             music_player.play({ playAudioWhenScreenIsLocked: true });
-            </script>
--->
+        </script>
+
  <!--       <input type="button" onclick="checkConnection()" value="Call function"> </input> -->
 
         <div class="app">
@@ -114,7 +99,6 @@
                 myaudio.id = 'playerMyAdio';
                 myaudio.play();
                   setToPause();
-                  checkConnection();
               } catch (e) {
                 alert('no audio support!');
               } 
