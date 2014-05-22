@@ -53,6 +53,24 @@
             }
         </script>
 
+        <script>
+
+            if (document.images) {
+                play_unpressed = new Image();  play_unpressed.src ="../www/img/play_unpressed.jpg";
+                play_pressed = new Image();  play_pressed.src = "../www/img/play_pressed.jpg";
+                pause_unpressed = new Image(); pause_unpressed.src = "../www/img/pause_unpressed.jpg"
+                pause_pressed = new Image(); pause_pressed.src = "../www/img/pause_pressed.jpg"
+            }
+
+            function playPress() { 
+            if (document.images) document.imgName.src=play_pressed.src;
+            }
+            function pausePress() { 
+            if (document.images) document.imgName.src=pause_pressed.src;
+            }
+
+        </script>
+
     </head>
   
     <body>
@@ -71,17 +89,24 @@
                     }
                 }
             } 
+            
             addLoadEvent(checkConnection);
+            
         </script>
-
- <!--       <input type="button" onclick="checkConnection()" value="Call function"> </input> -->
 
         <div class="app">
             <h1 style="background-color:white;">Clouds Can Speak</h1>
             
-          <div id="play_button">
-              <a href="#" onClick = "playStream();"><img src="../www/img/b_play.png"></a>
-         </div>          
+       <div id="play_button">
+              <a href="#" 
+              onMouseDown = "playPress(); return true;"
+              onMouseUp = "playStream();"
+
+              ><img name=imgName
+              alt="This image changes when you press the mouse button!"
+              src="../www/img/play_unpressed.jpg"
+              ></a>
+        </div>        
          
         <div id="nowplaying"></div>
         <div id="net_stat"></div>
@@ -92,11 +117,11 @@
             var music_player = document.getElementById("play_button");
             
             function playStream() {
-              
+
               try {
                 myaudio = new Audio('http://cloudscanspeak.net:8000/clouds');
                 myaudio.id = 'playerMyAdio';
-                myaudio.play();
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
                   setToPause();
               } catch (e) {
                 alert('no audio support!');
@@ -110,12 +135,12 @@
             
             function setToPause() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"pauseStream();\"><img src=\"../www/img/b_pause.png\"><img src=\"../www/img/equalizer-1.gif\"></a>"
+                playButton.innerHTML = "<a href=\" # \" onMouseDown = \"pausePress(); return true\" onMouseUp = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
             }
             
             function setToPlay() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onClick = \"playStream();\"><img src=\"../www/img/b_play.png\"></a>"
+                playButton.innerHTML = "<a href=\"#\" onMouseDown = \"playPress(); return true\" onMouseUp = \"playStream();\"><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
             }
         </script>
 
