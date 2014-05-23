@@ -137,12 +137,12 @@
             
             function setToPause() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\" # \" onMouseDown = \"pausePress(); return true\" onMouseUp = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
+                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
             }
             
             function setToPlay() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" onMouseDown = \"playPress(); return true\" onMouseUp = \"playStream();\"><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
+                playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\"><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
             }
         </script>
 
