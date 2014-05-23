@@ -155,8 +155,8 @@
 
             <!-- document.getElementById("nowplaying").innerHTML="YES"; -->
             
-            var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            ws.onmessage = function (evt) {
+            var ws = new WebSocket('ws://cloudscanspeak.net:1982/websocket');
+            ws.onMessage = function (evt) {
                 document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
                 }
                 }else {
