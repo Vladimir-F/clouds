@@ -128,28 +128,6 @@
 
             function playStream() {
                 
-                myaudio = new Audio;
-                myaudio.id = 'playerMyAudio';
-                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
-                myaudio.load();
-
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
-                setToPause();
-            }
-            
-            function pauseStream() {
-                myaudio.pause();
-                myaudio.currentTime = "0";
-                myaudio.prelpad = "none";
-                myaudio.src = "";
-                myaudio.ended();
-                setToPlay();
-            }
-            
-            function setToPause() {
-              var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ondblclick = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
-
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'getting dubby sounds...';
@@ -178,10 +156,32 @@
                 audio.play();
                 },false);
 
-                myaudio.addEventListener("suspend", function(){
-                todoItems.innerHTML = 'suspended';
+              //  myaudio.addEventListener("suspend", function(){
+              //  todoItems.innerHTML = 'suspended';
+              //  setToPlay();
+              //  }, false);
+
+                myaudio = new Audio;
+                myaudio.id = 'playerMyAudio';
+                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
+                myaudio.load();
+
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
+                setToPause();
+            }
+            
+            function pauseStream() {
+                myaudio.pause();
+                myaudio.currentTime = "0";
+                myaudio.prelpad = "none";
+                myaudio.src = "";
+                myaudio.ended();
                 setToPlay();
-                }, false);
+            }
+            
+            function setToPause() {
+              var playButton = document.getElementById("play_button");
+                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ondblclick = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
 
             }
             
