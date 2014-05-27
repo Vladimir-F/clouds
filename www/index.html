@@ -94,7 +94,7 @@
                 }
             } 
             
-            addLoadEvent(checkConnection);
+//            addLoadEvent(checkConnection);
             
         </script>
 
@@ -105,7 +105,6 @@
               <a href="#" 
               ontouchstart = "playPress(); return true;"
               ontouchend = "playStream();"
-              ondblclick="playStream()"; 
 
               ><img name=imgName
               alt="This image changes when you press the mouse button!"
@@ -172,22 +171,21 @@
             
             function pauseStream() {
                 myaudio.pause();
-                myaudio.currentTime = "0";
-                myaudio.prelpad = "none";
-                myaudio.src = "";
-                myaudio.ended();
+ //               myaudio.currentTime = "0";
+ //               myaudio.prelpad = "none";
+ //               myaudio.src = "";
                 setToPlay();
             }
             
             function setToPause() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ondblclick = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
+                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
 
             }
             
             function setToPlay() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\" ondblclick = \"playStream();\"><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
+                playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\" ><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
             }
         </script>
 
