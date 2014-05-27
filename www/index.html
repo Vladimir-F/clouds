@@ -123,8 +123,9 @@
             
             function playStream() {
                 
-                myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
+               // myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
                 myaudio.id = 'playerMyAudio';
+                myaudio.src = "http://cloudscanspeak.net:8000/clouds"
                 myaudio.load();
 
                 myaudio.addEventListener("loadstart", function(){
@@ -142,6 +143,7 @@
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
+                
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Check your connection';
