@@ -151,9 +151,9 @@
                 setToPlay();
                 }, false);
 
-                myaudio.addEventListener("loadeddata", function(){
-                audio.play();
-                },false);
+//                myaudio.addEventListener("loadeddata", function(){
+//                myaudio.play();
+//                },false);
 
               //  myaudio.addEventListener("suspend", function(){
               //  todoItems.innerHTML = 'suspended';
@@ -162,7 +162,7 @@
 
                 myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
-                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
+                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
                 myaudio.load();
 
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
