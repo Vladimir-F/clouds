@@ -131,6 +131,11 @@
                 todoItems.innerHTML = 'getting dubby sounds...';
                 },false);
 
+                myaudio.addEventListener("playing", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = '';
+                },false);
+
                 myaudio.addEventListener("stalled", function(){
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
