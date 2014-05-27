@@ -140,10 +140,10 @@
 
                 myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
-                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
+                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.load();
 
-                                myaudio.addEventListener("loadstart", function(){
+                myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'getting dubby sounds...';
                 },false);
