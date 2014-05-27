@@ -125,6 +125,7 @@
                 
                 myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
                 myaudio.id = 'playerMyAudio';
+                myaudio.load();
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
