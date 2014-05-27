@@ -52,7 +52,7 @@
             }
             if (states[networkState] = 'Cell 2G connection') || 'No network connection' {
             document.getElementById("net_stat").innerHTML= states[networkState];
-            alert ('')
+            alert ('states[networkState]');
             }
             
         </script>
@@ -105,6 +105,7 @@
               <a href="#" 
               ontouchstart = "playPress(); return true;"
               ontouchend = "playStream();"
+              ondblclick="playStream()"; 
 
               ><img name=imgName
               alt="This image changes when you press the mouse button!"
@@ -120,13 +121,34 @@
         <script type="text/javascript">
             var myaudio
             var music_player = document.getElementById("play_button");
-            
+
+                myaudio.addEventListener("loadeddata", function(){
+                audio.play();
+                },false);
+
             function playStream() {
                 
-               // myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
+                myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
-                myaudio.src = 'http://cloudscanspeak.net:8000/clouds'
+                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.load();
+
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
+                setToPause();
+            }
+            
+            function pauseStream() {
+                myaudio.pause();
+                myaudio.currentTime = "0";
+                myaudio.prelpad = "none";
+                myaudio.src = "";
+                myaudio.ended();
+                setToPlay();
+            }
+            
+            function setToPause() {
+              var playButton = document.getElementById("play_button");
+                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ondblclick = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
@@ -141,37 +163,31 @@
                 myaudio.addEventListener("stalled", function(){
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
+                finish(true);
                 },false);
 
                 
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Check your connection';
-                })
+                todoItems.innerHTML = 'streaming stoped';
+                checkConnection();
+                setToPlay();
+                }, false);
 
                 myaudio.addEventListener("loadeddata", function(){
                 audio.play();
                 },false);
 
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
-                setToPause();
-            }
-            
-            function pauseStream() {
-                myaudio.pause();
-              //  myaudio.src = "";
-              //  myaudio.load();
+                myaudio.addEventListener("suspend", function(){
+                todoItems.innerHTML = 'suspended';
                 setToPlay();
-            }
-            
-            function setToPause() {
-              var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\" # \" ontouchstart = \"pausePress(); return true\" ontouchend = \"pauseStream();\" ><img name=imgName src= \"../www/img/pause_unpressed.jpg\" ><img src=\"../www/img/equalizer-1.gif\"></a>"
+                }, false);
+
             }
             
             function setToPlay() {
               var playButton = document.getElementById("play_button");
-                playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\"><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
+                playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\" ondblclick = \"playStream();\"><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
             }
         </script>
 
