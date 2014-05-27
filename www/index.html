@@ -46,12 +46,15 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection';
-            states[networkState] = 'something'; 
             //return states[networkState];
             if (states[networkState] != 'WiFi connection') {
-            document.getElementById("net_stat").innerHTML= states[networkState];                
-                                    }
+            document.getElementById("net_stat").innerHTML= states[networkState];             
             }
+            if (states[networkState] = 'Cell 2G connection') || 'No network connection' {
+            document.getElementById("net_stat").innerHTML= states[networkState];
+            alert ('')
+            }
+            
         </script>
 
         <script>
@@ -111,6 +114,7 @@
          
         <div id="nowplaying"></div>
         <div id="net_stat"></div>
+        <div id="stream_status"></div>
 
 
         <script type="text/javascript">
@@ -118,16 +122,36 @@
             var music_player = document.getElementById("play_button");
             
             function playStream() {
-             // var ActualNetwork = checkConnection();
                 
-              try {
-                myaudio = new Audio('http://cloudscanspeak.net:8000/clouds');
+                myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
                 myaudio.id = 'playerMyAudio';
+
+                myaudio.addEventListener("loadstart", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'getting dubby sounds...';
+                },false);
+
+                myaudio.addEventListener("playing", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Playing...';
+                },false);
+
+                myaudio.addEventListener("stalled", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Buffering...';
+                },false);
+
+                myaudio.addEventListener("error", function() {
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Check your connection';
+                })
+
+                myaudio.addEventListener("loadeddata", function(){
+                audio.play();
+                },false);
+
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
-                  setToPause();
-              } catch (e) {
-                alert('no audio support!');
-              } 
+                setToPause();
             }
             
             function pauseStream() {
@@ -155,8 +179,8 @@
 
             <!-- document.getElementById("nowplaying").innerHTML="YES"; -->
             
-            var ws = new WebSocket('ws://cloudscanspeak.net:1982/websocket');
-            ws.onMessage = function (evt) {
+            var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
+            ws.onmessage = function (evt) {
                 document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
                 }
                 }else {
