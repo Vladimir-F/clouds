@@ -150,12 +150,15 @@
                 audio.play();
                 },false);
 
+                try{
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
             }
             
             function pauseStream() {
                 myaudio.pause();
+                myaudio.src = "";
+                myaudio.load();
                 setToPlay();
             }
             
