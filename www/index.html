@@ -121,13 +121,29 @@
             var myaudio
             var music_player = document.getElementById("play_button");
 
-                myaudio.addEventListener("loadeddata", function(){
-                audio.play();
-                },false);
+ //               myaudio.addEventListener("loadeddata", function(){
+ //               audio.play();
+ //               },false);
 
             function playStream() {
                 
-                myaudio.addEventListener("loadstart", function(){
+
+
+//                myaudio.addEventListener("loadeddata", function(){
+//                myaudio.play();
+//                },false);
+
+              //  myaudio.addEventListener("suspend", function(){
+              //  todoItems.innerHTML = 'suspended';
+              //  setToPlay();
+              //  }, false);
+
+                myaudio = new Audio;
+                myaudio.id = 'playerMyAudio';
+                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
+                myaudio.load();
+
+                                myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'getting dubby sounds...';
                 },false);
@@ -150,20 +166,6 @@
 //                checkConnection();
                 setToPlay();
                 }, false);
-
-//                myaudio.addEventListener("loadeddata", function(){
-//                myaudio.play();
-//                },false);
-
-              //  myaudio.addEventListener("suspend", function(){
-              //  todoItems.innerHTML = 'suspended';
-              //  setToPlay();
-              //  }, false);
-
-                myaudio = new Audio;
-                myaudio.id = 'playerMyAudio';
-                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
-                myaudio.load();
 
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
