@@ -36,7 +36,8 @@
         
             function checkConnection() {
             var networkState = navigator.connection.type;
-            
+            var network_ok = 1;
+
             var states = {};
             states[Connection.UNKNOWN]  = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
@@ -46,14 +47,16 @@
             states[Connection.CELL_4G]  = 'Cell 4G connection';
             states[Connection.CELL]     = 'Cell generic connection';
             states[Connection.NONE]     = 'No network connection';
-            //return states[networkState];
             if (states[networkState] != 'WiFi connection') {
             document.getElementById("net_stat").innerHTML= states[networkState];             
             }
-//            if (states[networkState] = 'Cell 2G connection') || 'No network connection' {
-//            document.getElementById("net_stat").innerHTML= states[networkState];
-//            alert ('states[networkState]');
-//            }
+            if (states[networkState] = 'Cell 2G connection' || 'No network connection') {
+
+            document.getElementById("net_stat").innerHTML= states[networkState];
+            alert ('you need better coverege to listen these beats');
+            network_ok = 0;
+            return network_ok;
+            }
             
         </script>
 
@@ -95,7 +98,7 @@
             } 
             
             addLoadEvent(checkConnection);
-            
+
         </script>
 
         <div class="app">
@@ -118,16 +121,40 @@
 
 
         <script type="text/javascript">
-            var myaudio
             var music_player = document.getElementById("play_button");
-                myaudio = new Audio;
+            var myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
+            
+            function playStream() {
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.load();
 
-            function playStream() {
+                myaudio.addEventListener("loadstart", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Getting stream...';
+                },false);
 
+                myaudio.addEventListener("stalled", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Buffering...';
+                },false);
+
+                audio.addEventListener("playing", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Playing...';
+                document.getElementById("b_value").innerHTML=b;
+                },false);
+
+                myaudio.addEventListener("error", function() {
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'unable to catch the stream';
+                })
+
+                myaudio.addEventListener("loadeddata", function(){
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
+                },false);
+                }
+            
                 setToPause();
             }
             
