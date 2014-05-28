@@ -37,6 +37,7 @@
             function checkConnection() {
                 var networkState = navigator.connection.type;
                 var network_ok = 1;
+                var cant_catch = 'you need better coverege to listen these beats'
 
                 var states = {};
                 states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -47,16 +48,19 @@
                 states[Connection.CELL_4G]  = 'Cell 4G connection';
                 states[Connection.CELL]     = 'Cell generic connection';
                 states[Connection.NONE]     = 'No network connection';
+                
                 if (states[networkState] != 'WiFi connection') {
-                document.getElementById("net_stat").innerHTML= states[networkState];             
+                document.getElementById("net_stat").innerHTML= states[networkState];         
                 }
-                if (states[networkState] == 'Cell 2G connection' || 'No network connection') {
-
-                document.getElementById("net_stat").innerHTML= states[networkState];
-                alert ('you need better coverege to listen these beats');
-                network_ok = 0;
-                return network_ok;
+                if (states[networkState] == 'Cell 2G connection') {
+                alert (cant_catch);
                 }
+                if (states[networkState] == 'No network connection') {
+                alert (cant_catch);
+                }
+                //network_ok = 0;
+                //return network_ok;
+                
             }
             
         </script>
@@ -127,10 +131,6 @@
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
-//                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
-//                myaudio.load();
-                myaudio.play({playAudioWhenScreenIsLocked: true});
-                setToPause();
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
@@ -145,12 +145,18 @@
                 audio.addEventListener("playing", function(){
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Playing...';
-                document.getElementById("b_value").innerHTML=b;
                 },false);
 
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'unable to catch the stream';
+
+//                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
+//                myaudio.load();
+                myaudio.play({playAudioWhenScreenIsLocked: true});
+                setToPause();
+
+
                 })
             
                 
