@@ -147,6 +147,11 @@
                 todoItems.innerHTML = '';
                 },false);
 
+                myaudio.addEventListener("pause", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = '';
+                },false);
+
                 myaudio.addEventListener("stalled", function(){
                 checkConnection();
                 var todoItems = document.getElementById('stream_status');
