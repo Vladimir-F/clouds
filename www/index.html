@@ -129,15 +129,12 @@
         <div id="show_counter"></div>
 
         <script type="text/javascript">
-            var counter = 0;
             var music_player = document.getElementById("play_button");
             var myaudio;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
                 myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
-                myaudio.id = 'playerMyAudio';
-                myaudio.load();
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
@@ -163,7 +160,7 @@
                 myaudio.addEventListener("waiting", function() {
                 var todoItems = document.getElementById('stream_waiting');
                 todoItems.innerHTML = 'waiting';
-                })
+                }, false);
 
                 myaudio.addEventListener("suspend", function() {
                 var todoItems = document.getElementById('stream_suspend');
@@ -177,7 +174,7 @@
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
-                audio.play();
+                myaudio.play();
                 },false);
 
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
