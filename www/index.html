@@ -35,27 +35,28 @@
         <script>
         
             function checkConnection() {
-            var networkState = navigator.connection.type;
-            var network_ok = 1;
+                var networkState = navigator.connection.type;
+                var network_ok = 1;
 
-            var states = {};
-            states[Connection.UNKNOWN]  = 'Unknown connection';
-            states[Connection.ETHERNET] = 'Ethernet connection';
-            states[Connection.WIFI]     = 'WiFi connection';
-            states[Connection.CELL_2G]  = 'Cell 2G connection';
-            states[Connection.CELL_3G]  = 'Cell 3G connection';
-            states[Connection.CELL_4G]  = 'Cell 4G connection';
-            states[Connection.CELL]     = 'Cell generic connection';
-            states[Connection.NONE]     = 'No network connection';
-            if (states[networkState] != 'WiFi connection') {
-            document.getElementById("net_stat").innerHTML= states[networkState];             
-            }
-            if (states[networkState] = 'Cell 2G connection' || 'No network connection') {
+                var states = {};
+                states[Connection.UNKNOWN]  = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI]     = 'WiFi connection';
+                states[Connection.CELL_2G]  = 'Cell 2G connection';
+                states[Connection.CELL_3G]  = 'Cell 3G connection';
+                states[Connection.CELL_4G]  = 'Cell 4G connection';
+                states[Connection.CELL]     = 'Cell generic connection';
+                states[Connection.NONE]     = 'No network connection';
+                if (states[networkState] != 'WiFi connection') {
+                document.getElementById("net_stat").innerHTML= states[networkState];             
+                }
+                if (states[networkState] = 'Cell 2G connection' || 'No network connection') {
 
-            document.getElementById("net_stat").innerHTML= states[networkState];
-            alert ('you need better coverege to listen these beats');
-            network_ok = 0;
-            return network_ok;
+                document.getElementById("net_stat").innerHTML= states[networkState];
+                alert ('you need better coverege to listen these beats');
+                network_ok = 0;
+                return network_ok;
+                }
             }
             
         </script>
