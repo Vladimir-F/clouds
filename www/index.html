@@ -141,10 +141,11 @@
 
                 myaudio.addEventListener("playing", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Playing...';
+                todoItems.innerHTML = '';
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
+                checkConnection();
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
                 },false);
