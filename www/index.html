@@ -127,8 +127,8 @@
             
             function playStream() {
                 myaudio.src = "http://cloudscanspeak.net:8000/clouds";
-                myaudio.load();
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
+//                myaudio.load();
+                myaudio.play({playAudioWhenScreenIsLocked: true});
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
