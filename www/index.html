@@ -127,19 +127,16 @@
 
         <script type="text/javascript">
             var music_player = document.getElementById("play_button");
-            var myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
+            var myaudio;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
+                myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
+                myaudio.id = 'playerMyAudio';
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Getting stream...';
-                },false);
-
-                myaudio.addEventListener("stalled", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Buffering...';
+                todoItems.innerHTML = 'getting dubby sounds...';
                 },false);
 
                 myaudio.addEventListener("playing", function(){
@@ -147,19 +144,22 @@
                 todoItems.innerHTML = 'Playing...';
                 },false);
 
+                myaudio.addEventListener("stalled", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Buffering...';
+                },false);
+
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'unable to catch the stream';
-
-//                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
-//                myaudio.load();
-                myaudio.play({playAudioWhenScreenIsLocked: true});
-                setToPause();
-
-
+                todoItems.innerHTML = 'Check your connection';
                 })
-            
-                
+
+                myaudio.addEventListener("loadeddata", function(){
+                audio.play();
+                },false);
+
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
+                setToPause();
             }
             
             function pauseStream() {
