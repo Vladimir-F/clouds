@@ -123,11 +123,11 @@
 
         <script type="text/javascript">
             var music_player = document.getElementById("play_button");
-            var myaudio = new Audio;
+            var myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
-                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
+//                myaudio.src = "http://cloudscanspeak.net:8000/clouds";
 //                myaudio.load();
                 myaudio.play({playAudioWhenScreenIsLocked: true});
 
