@@ -163,13 +163,6 @@
                 myaudio.addEventListener("waiting", function() {
                 var todoItems = document.getElementById('stream_waiting');
                 todoItems.innerHTML = 'waiting';
-                checkConnection(a);
-                if (a == 1) {
-                    setToPlay();
-                }
-                counter = couner+1;
-                counter = document.getElementById('show_counter');
-                counter.innerHTML = 'counter is' +counter.data;
                 })
 
                 myaudio.addEventListener("suspend", function() {
@@ -180,7 +173,7 @@
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Check your connection';
-                setToPause();
+                setToPlay();
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
