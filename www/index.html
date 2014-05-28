@@ -57,9 +57,10 @@
                 }
                 if (states[networkState] == 'No network connection') {
                 alert (cant_catch);
+                network_ok=0;
                 }
-                //network_ok = 0;
-                //return network_ok;
+                
+                return network_ok;
                 
             }
             
@@ -161,6 +162,10 @@
                 myaudio.addEventListener("waiting", function() {
                 var todoItems = document.getElementById('stream_waiting');
                 todoItems.innerHTML = 'waiting';
+                checkConnection(a);
+                if (a=0) {
+                    setToPlay();
+                }
                 counter = couner+1;
                 counter = document.getElementById('show_counter');
                 counter.innerHTML = 'counter is' +counter.data;
