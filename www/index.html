@@ -33,7 +33,7 @@
         <title>Coluds Can Speak Radio</title>
 
         <script>
-            
+        
             function checkConnection() {
             var networkState = navigator.connection.type;
             
@@ -79,7 +79,7 @@
   
     <body>
 
-        <script type="text/javascript">
+<!--        <script type="text/javascript">
             function addLoadEvent (func) {
                 var oldonload = window.onload;
                 if (typeof window.onload != 'function') {
@@ -94,8 +94,8 @@
                 }
             } 
             
-//            addLoadEvent(checkConnection);
-            
+            addLoadEvent(checkConnection);
+            -->
         </script>
 
         <div class="app">
@@ -120,53 +120,13 @@
         <script type="text/javascript">
             var myaudio
             var music_player = document.getElementById("play_button");
-
- //               myaudio.addEventListener("loadeddata", function(){
- //               audio.play();
- //               },false);
-
-            function playStream() {
-                
-
-
-//                myaudio.addEventListener("loadeddata", function(){
-//                myaudio.play();
-//                },false);
-
-              //  myaudio.addEventListener("suspend", function(){
-              //  todoItems.innerHTML = 'suspended';
-              //  setToPlay();
-              //  }, false);
-
                 myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.load();
 
-                myaudio.addEventListener("loadstart", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'getting dubby sounds...';
-                },false);
-
-                myaudio.addEventListener("playing", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
-                },false);
-
-                myaudio.addEventListener("stalled", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Buffering...';
-                finish(true);
-                },false);
-
+            function playStream() {
                 
-                myaudio.addEventListener("error", function() {
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'streaming stoped';
-//                checkConnection();
-                setToPlay();
-                }, false);
-
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
             }
@@ -212,7 +172,6 @@
         <script type="text/javascript">
             app.initialize();
             window.plugin.backgroundMode.enable();
-            music_player.play({ playAudioWhenScreenIsLocked: true });
         </script>
 
 
