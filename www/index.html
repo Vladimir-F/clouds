@@ -134,6 +134,7 @@
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
+                checkConnection();
                 myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
 
                 myaudio.addEventListener("loadstart", function(){
@@ -171,11 +172,11 @@
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Check your connection';
                 setToPlay();
-                })
+                },false)
 
                 myaudio.addEventListener("loadeddata", function(){
                 myaudio.play();
-                },false);
+                });
 
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
