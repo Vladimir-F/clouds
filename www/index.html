@@ -123,6 +123,8 @@
         <div id="nowplaying"></div>
         <div id="net_stat"></div>
         <div id="stream_status"></div>
+        <div id="stream_waiting"></div>
+        <div id="stream_suspend"></div>
 
 
         <script type="text/javascript">
@@ -150,6 +152,16 @@
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
+                myaudio.addEventListener("waiting", function() {
+                var todoItems = document.getElementById('stream_waiting');
+                todoItems.innerHTML = 'waiting';
+                })
+
+                myaudio.addEventListener("suspend", function() {
+                var todoItems = document.getElementById('stream_suspend');
+                todoItems.innerHTML = 'suspend';
+                })
+                
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Check your connection';
