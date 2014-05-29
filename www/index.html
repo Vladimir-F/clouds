@@ -32,6 +32,13 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Coluds Can Speak Radio</title>
 
+        <script type="text/javascript">
+        function test(){
+            var a = 'привет';
+            return a;
+        }
+        </script>>
+
         <script>
         
             function checkConnection() {
@@ -138,6 +145,8 @@
             function playStream() {
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.id = 'playerMyAudio';
+                var b = test(a);
+                alert (b);
                 //var network_check = checkConnection(network_ok);
                 //alert('network_check');
 
