@@ -129,14 +129,14 @@
         <div id="show_counter"></div>
 
         <script type="text/javascript">
+
             var music_player = document.getElementById("play_button");
             var myaudio;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
-                checkConnection(network_ok);
-                document.getElementById("show_counter").innerHTML=network_ok;
                 myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
+                myaudio.id = 'playerMyAudio';
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
@@ -145,39 +145,22 @@
 
                 myaudio.addEventListener("playing", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
-                },false);
-
-                myaudio.addEventListener("pause", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
+                todoItems.innerHTML = 'Playing...';
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
-                checkConnection();
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
-                myaudio.addEventListener("waiting", function() {
-                var todoItems = document.getElementById('stream_waiting');
-                todoItems.innerHTML = 'waiting';
-                }, false);
-
-                myaudio.addEventListener("suspend", function() {
-                var todoItems = document.getElementById('stream_suspend');
-                todoItems.innerHTML = 'suspend';
-                })
-                
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Check your connection';
-                setToPlay();
-                },false)
+                })
 
                 myaudio.addEventListener("loadeddata", function(){
-                myaudio.play();
-                });
+                audio.play();
+                },false);
 
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
