@@ -156,7 +156,7 @@
 
                 myaudio.addEventListener("stalled", function(){
                 checkConnection(network_ok);
-                document.getElementById("show_counter").innerHTML="Network ok is: "+network_ok;
+                //document.getElementById("show_counter").innerHTML="Network ok is: "+network_ok;
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
                 },false);
@@ -164,8 +164,8 @@
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
-                loaded_data_times = loaded_data_times +1;
-                document.getElementById("stream_loadeddata").innerHTML= "loadeddata fires:" +loaded_data_times;
+                //loaded_data_times = loaded_data_times +1;
+                //document.getElementById("stream_loadeddata").innerHTML= "loadeddata fires:" +loaded_data_times;
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
                 
