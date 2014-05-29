@@ -132,7 +132,7 @@
 
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
-            var loaded_data_times = 0;
+            //var loaded_data_times = 0;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
@@ -155,7 +155,7 @@
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
-                checkConnection(network_ok);
+                //checkConnection(network_ok);
                 //document.getElementById("show_counter").innerHTML="Network ok is: "+network_ok;
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
