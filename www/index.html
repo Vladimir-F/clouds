@@ -131,12 +131,11 @@
         <script type="text/javascript">
 
             var music_player = document.getElementById("play_button");
-            var myaudio;
+            var myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
-                myaudio.id = 'playerMyAudio';
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
