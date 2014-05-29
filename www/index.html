@@ -156,9 +156,11 @@
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Check your connection';
+                alert('error');
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
+                alert('loadeddata');
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
 
