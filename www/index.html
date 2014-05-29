@@ -153,11 +153,6 @@
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
-                myaudio.addEventListener("error", function() {
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Check your connection';
-                })
-
                 myaudio.addEventListener("loadeddata", function(){
                 audio.play();
                 },false);
