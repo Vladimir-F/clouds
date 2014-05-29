@@ -135,7 +135,7 @@
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
-                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
+                myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
                 myaudio.id = 'playerMyAudio';
 
                 myaudio.addEventListener("loadstart", function(){
@@ -145,12 +145,7 @@
 
                 myaudio.addEventListener("playing", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
-                },false);
-
-                myaudio.addEventListener("pause", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
+                todoItems.innerHTML = 'Playing...';
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
@@ -158,14 +153,17 @@
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
-                audio.addEventListener("error", function() {
+                myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
-                });
+                todoItems.innerHTML = 'Check your connection';
+                })
 
                 myaudio.addEventListener("loadeddata", function(){
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
+                audio.play();
                 },false);
+
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
+
 
                 setToPause();
             }
