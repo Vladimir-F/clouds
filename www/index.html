@@ -158,6 +158,11 @@
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
+                audio.addEventListener("error", function() {
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = '';
+                })
+
                 myaudio.addEventListener("loadeddata", function(){
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
@@ -168,7 +173,7 @@
             function pauseStream() {
                 myaudio.pause();
                 myaudio.src='';
-                myaudio.load();
+                //myaudio.load();
                 setToPlay();
             }
             
