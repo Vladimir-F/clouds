@@ -134,7 +134,8 @@
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
-                checkConnection();
+                checkConnection(network_ok);
+                document.getElementById("show_counter").innerHTML=network_ok;
                 myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
 
                 myaudio.addEventListener("loadstart", function(){
