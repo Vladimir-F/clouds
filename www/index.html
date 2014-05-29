@@ -165,7 +165,7 @@
 
                 myaudio.addEventListener("loadeddata", function(){
                 loaded_data_times = loaded_data_times +1;
-                document.getElementById("stream_loadeddata").innerHTML= network_ok;
+                document.getElementById("stream_loadeddata").innerHTML= "loadeddata fires:" +loaded_data_times;
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
                 
