@@ -159,7 +159,7 @@
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
-                myaudio.play();
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
 
 //                myaudio.play({ playAudioWhenScreenIsLocked: true });
