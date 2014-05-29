@@ -145,7 +145,12 @@
 
                 myaudio.addEventListener("playing", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Playing...';
+                todoItems.innerHTML = '';
+                },false);
+
+                myaudio.addEventListener("pause", function(){
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = '';
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
@@ -154,10 +159,9 @@
                 },false);
 
                 myaudio.addEventListener("loadeddata", function(){
-                audio.play();
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
 
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
             }
             
