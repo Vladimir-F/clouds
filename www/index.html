@@ -125,13 +125,14 @@
         <div id="net_stat"></div>
         <div id="stream_status"></div>
         <div id="stream_waiting"></div>
-        <div id="stream_suspend"></div>
+        <div id="stream_loadeddata"></div>
         <div id="show_counter"></div>
 
         <script type="text/javascript">
 
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
+            var loaded_data_times = 0;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
@@ -154,18 +155,17 @@
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
+                checkConnection(network_ok);
+                document.getElementById("show_counter").innerHTML="Network ok is: "+network_ok;
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
-                myaudio.addEventListener("error", function() {
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Check your connection';
-                alert('error');
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
-                alert('loadeddata');
+                loaded_data_times = loaded_data_times +1;
+                document.getElementById("stream_loadeddata").innerHTML= network_ok;
                 myaudio.play({ playAudioWhenScreenIsLocked: true });
                 },false);
                 
