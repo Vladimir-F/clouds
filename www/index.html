@@ -132,12 +132,11 @@
 
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
-            //var loaded_data_times = 0;
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
-                myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
-                myaudio.load();
+                myaudio = new Audio ('http://cloudscanspeak.net:8000/clouds');
+                myaudio.id = 'playerMyAudio';
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
@@ -149,26 +148,21 @@
                 todoItems.innerHTML = 'Playing...';
                 },false);
 
-                myaudio.addEventListener("pause", function(){
-                var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
-                },false);
-
                 myaudio.addEventListener("stalled", function(){
-                //checkConnection(network_ok);
-                //document.getElementById("show_counter").innerHTML="Network ok is: "+network_ok;
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = 'Buffering...';
                 },false);
 
+                myaudio.addEventListener("error", function() {
+                var todoItems = document.getElementById('stream_status');
+                todoItems.innerHTML = 'Check your connection';
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
-                //loaded_data_times = loaded_data_times +1;
-                //document.getElementById("stream_loadeddata").innerHTML= "loadeddata fires:" +loaded_data_times;
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
+                audio.play();
                 },false);
-                
+
+                myaudio.play({ playAudioWhenScreenIsLocked: true });
                 setToPause();
             }
             
