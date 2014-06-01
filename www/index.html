@@ -129,13 +129,7 @@
         <div id="stream_loadeddata"></div>
         <div id="show_counter"></div>
 
-        <script type="text/javascript">
-        function test(){
-            var a = 'привет';
-            return a;
-        }
-        </script>
-
+        
         <script type="text/javascript">
 
             var music_player = document.getElementById("play_button");
@@ -145,8 +139,7 @@
             function playStream() {
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.id = 'playerMyAudio';
-                var b = test(a);
-                alert (b);
+                //alert (test());
                 //var network_check = checkConnection(network_ok);
                 //alert('network_check');
 
