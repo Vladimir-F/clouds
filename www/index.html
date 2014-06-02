@@ -36,7 +36,6 @@
         
             function checkConnection() {
                 var networkState = navigator.connection.type;
-                var network_ok = 1;
                 var cant_catch = 'you need better coverege to listen these beats'
 
                 var states = {};
@@ -57,10 +56,7 @@
                 }
                 if (states[networkState] == 'No network connection') {
                 alert (cant_catch);
-                network_ok=0;
                 }
-                
-                alert (network_ok);
                 return network_ok;
                 
             }
@@ -74,7 +70,6 @@
                 play_pressed = new Image();  play_pressed.src = "../www/img/play_pressed.jpg";
                 pause_unpressed = new Image(); pause_unpressed.src = "../www/img/pause_unpressed.jpg"
                 pause_pressed = new Image(); pause_pressed.src = "../www/img/pause_pressed.jpg"
-                buffering_gif = new Image(); buffering_gif.src = "../www/img/loader.gif"
             }
 
             function playPress() { 
@@ -116,6 +111,7 @@
               <a href="#" 
               ontouchstart = "playPress(); return true;"
               ontouchend = "playStream();"
+              ondblclick="playStream();" 
 
               ><img name=imgName
               alt="This image changes when you press the mouse button!"
@@ -141,9 +137,6 @@
             function playStream() {
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.id = 'playerMyAudio';
-                //alert (test());
-                //var network_check = checkConnection(network_ok);
-                //alert('network_check');
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
@@ -157,7 +150,7 @@
 
                 myaudio.addEventListener("stalled", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = buffering_gif + 'Buffering...';
+                todoItems.innerHTML = '<img src = ../www/img/loader.gif width="20" height="20">' + '   Buffering...';
                 },false);
 
                 myaudio.addEventListener("error", function() {
@@ -208,7 +201,7 @@
                 document.getElementById("nowplaying").innerHTML="Now playing: oopps";
                 }
         </script>
-        -->
+        
 
         <script>
 
@@ -259,6 +252,7 @@
           document.addEventListener("deviceready", init, false);
 
         </script>
+        -->
         
         <script type="text/javascript">
             app.initialize();
