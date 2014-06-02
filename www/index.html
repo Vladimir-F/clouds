@@ -74,6 +74,7 @@
                 play_pressed = new Image();  play_pressed.src = "../www/img/play_pressed.jpg";
                 pause_unpressed = new Image(); pause_unpressed.src = "../www/img/pause_unpressed.jpg"
                 pause_pressed = new Image(); pause_pressed.src = "../www/img/pause_pressed.jpg"
+                buffering_gif = new buff_img(); buff_img.src = "../www/img/buff_img.gif"
             }
 
             function playPress() { 
@@ -156,12 +157,12 @@
 
                 myaudio.addEventListener("stalled", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Buffering...';
+                todoItems.innerHTML = ;
                 },false);
 
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = '';
+                todoItems.innerHTML = buff_img + 'Buffering...';
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
