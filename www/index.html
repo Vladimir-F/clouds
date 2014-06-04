@@ -127,10 +127,9 @@
         <div id="stream_loadeddata"></div>
         <div id="show_counter"></div>
         <div id="log"></div>
-
         
         <script type="text/javascript">
-
+        initWeb();
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
@@ -147,14 +146,15 @@
 
                 myaudio.addEventListener("playing", function(){
                 var todoItems = document.getElementById('stream_status');
-                todoItems.innerHTML = 'Playing...';
+                todoItems.innerHTML = 'On air...';
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
-                //checkConnection();
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = '<img src = ../www/img/loader.gif width="20" height="20">' + '   Buffering...';
+                checkConnection();
                 },false);
+
 
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
@@ -201,7 +201,7 @@
         <script type="text/javascript">
             app.initialize();
             window.plugin.backgroundMode.enable();
-            document.addEventListener("deviceready", initWeb(), false);
+            initWeb();
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
