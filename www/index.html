@@ -150,6 +150,7 @@
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
+                checkConnection();
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = '<img src = ../www/img/loader.gif width="20" height="20">' + '   Buffering...';
                 },false);
@@ -188,13 +189,16 @@
         <script type="text/javascript">
         function initWeb(){
             alert('hi');
-            if ((typeof(window.opener.WebSocket) === 'function') || ('WebSocket' in window.opener) ) {
-                alert("SUCCESS! Your browser DOES support HTML5 Web Sockets.");
-            }
-            else {
-                alert("Error. Your browser does NOT support HTML5 Web Sockets.");
-            }
+            //if ((typeof(window.opener.WebSocket) === 'function') || ('WebSocket' in window.opener) ) {
+              //  alert("SUCCESS! Your browser DOES support HTML5 Web Sockets.");
+            //}
+            //else {
+              //  alert("Error. Your browser does NOT support HTML5 Web Sockets.");
+            //}
             var socket = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
+            socket.onopen = function (event) {
+                alert ('onopen');
+            }
             socket.onmessage = function (event){
             document.getElementById("nowplaying").innerHTML = event.data;
             }
