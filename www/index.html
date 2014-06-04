@@ -188,7 +188,9 @@
         function initWeb(){
             alert('hi');
             var socket = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            document.getElementById("nowplaying").innerHTML="Now playing: "+socket.data;
+            socket.onmessage = function (event){
+                document.getElementById("nowplaying").innerHTML = event.data;
+            }
         }
         </script>
 
