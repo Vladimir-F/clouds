@@ -110,7 +110,7 @@
        <div id="play_button">
               <a href="#" 
               ontouchstart = "playPress(); return true;"
-              ontouchend = "playStream();"
+              ontouchend = "playStream(),;"
               ondblclick="playStream();" 
 
               ><img name=imgName
@@ -149,6 +149,7 @@
                 },false);
 
                 myaudio.addEventListener("stalled", function(){
+                checkConnection();
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = '<img src = ../www/img/loader.gif width="20" height="20">' + '   Buffering...';
                 },false);
