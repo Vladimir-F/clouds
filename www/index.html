@@ -184,10 +184,20 @@
             }
         </script>
 
-         <script type="text/javascript" src="phonegap.js"></script>
-         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+        function initWeb(){
+            alert('hi');
+            var socket = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
+            document.getElementById("nowplaying").innerHTML="Now playing: "+socket.data;
+        }
+        </script>
+
+
+
+
 <!--
         <script type="text/javascript">
+
             window.WebSocket = window.WebSocket || window.MozWebSocket;
             if(window.WebSocket) {
 
@@ -255,9 +265,12 @@
         -->
         
         <script type="text/javascript">
+            initWeb();
             app.initialize();
             window.plugin.backgroundMode.enable();
         </script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
 
 
     </body>
