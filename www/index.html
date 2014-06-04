@@ -128,7 +128,6 @@
         <div id="log"></div>
         
         <script type="text/javascript">
-        //initWeb();
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
@@ -152,7 +151,6 @@
                 var todoItems = document.getElementById('stream_status');
                 todoItems.innerHTML = '<img src = ../www/img/loader.gif width="20" height="20">' + '   Buffering...';
                 },false);
-
 
                 myaudio.addEventListener("error", function() {
                 var todoItems = document.getElementById('stream_status');
