@@ -57,7 +57,6 @@
                 if (states[networkState] == 'No network connection') {
                 alert (cant_catch);
                 }
-                return false;
             }
             
         </script>
@@ -191,7 +190,6 @@
             socket.onmessage = function (event){
             document.getElementById("nowplaying").innerHTML = event.data;
             }
-            return false;
         }
         </script>
         
