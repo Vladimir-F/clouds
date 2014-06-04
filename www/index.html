@@ -101,6 +101,7 @@
             } 
             
             addLoadEvent(checkConnection);
+            addLoadEvent(initWeb);
 
         </script>
 
@@ -188,100 +189,19 @@
 
         <script type="text/javascript">
         function initWeb(){
-            alert('hi');
-            //if ((typeof(window.opener.WebSocket) === 'function') || ('WebSocket' in window.opener) ) {
-              //  alert("SUCCESS! Your browser DOES support HTML5 Web Sockets.");
-            //}
-            //else {
-              //  alert("Error. Your browser does NOT support HTML5 Web Sockets.");
-            //}
             var socket = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
             socket.onopen = function (event) {
-                alert ('onopen');
             }
             socket.onmessage = function (event){
             document.getElementById("nowplaying").innerHTML = event.data;
             }
         }
         </script>
-
-
-
-
-<!--
-        <script type="text/javascript">
-
-            window.WebSocket = window.WebSocket || window.MozWebSocket;
-            if(window.WebSocket) {
-
-            //document.getElementById("nowplaying").innerHTML="YES";
-            
-            var ws = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            ws.onmessage = function (evt) {
-                document.getElementById("nowplaying").innerHTML="Now playing: "+evt.data;
-                }
-                }else {
-                document.getElementById("nowplaying").innerHTML="Now playing: oopps";
-                }
-        </script>
-        
-
-        <script>
-
-          function loadScript(url, callback) {
-            var head = document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = url;
-            script.onload = callback;
-            head.appendChild(script);
-          }
-
-          function init() {
-
-            loadScript('js/socket.io.js', function () {
-
-              var socket = io.connect("http://cloudscanspeak.net:1982/websocket");
-
-              document.getElementById('log').innerHTML = "connecting";
-
-              socket.on('ping', function (data) {
-                document.getElementById('log').innerHTML = data.message;
-                socket.emit('pong', { message: 'Hello from client!' });
-              });
-
-              socket.on('connect', function () {
-                 document.getElementById('log').innerHTML = "connected";
-              });
-
-              socket.on('reconnect', function () {
-                document.getElementById('log').innerHTML = "reconnected";
-              });
-
-              socket.on('disconnect', function () {
-                document.getElementById('log').innerHTML = "disconnected";
-              });
-
-              socket.on('reconnecting', function () {
-                document.getElementById('log').innerHTML = "reconnecting...";
-              });
-
-              socket.on('error', function () {
-                document.getElementById('log').innerHTML = "error";
-              });
-            });
-          }
-
-          document.addEventListener("deviceready", init, false);
-
-        </script>
-        -->
         
         <script type="text/javascript">
             app.initialize();
             window.plugin.backgroundMode.enable();
             document.addEventListener("deviceready", initWeb(), false);
-
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
