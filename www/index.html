@@ -57,8 +57,6 @@
                 if (states[networkState] == 'No network connection') {
                 alert (cant_catch);
                 }
-                return network_ok;
-                
             }
             
         </script>
@@ -193,7 +191,7 @@
             socket.onopen = function (event) {
             }
             socket.onmessage = function (event){
-            document.getElementById("nowplaying").innerHTML = event.data;
+            document.getElementById("nowplaying").innerHTML = "on air: " + event.data;
             }
         }
         </script>
