@@ -267,9 +267,9 @@
         -->
         
         <script type="text/javascript">
-            initWeb();
             app.initialize();
             window.plugin.backgroundMode.enable();
+            document.addEventListener("deviceready", initWeb, false);
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
