@@ -127,7 +127,7 @@
         <div id="log"></div>
         
         <script type="text/javascript">
-            //document.addEventListener("deviceready", initWeb, false);
+            document.addEventListener("deviceready", testa, false);
             document.addEventListener("offline", setToPlay, false);
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
@@ -183,6 +183,13 @@
                 playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\" ><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
             }
         </script>
+
+        <script>
+        function test a(){
+            alert('im here');
+        }
+        </script>
+
 
         <script type="text/javascript">
         function initWeb(){
