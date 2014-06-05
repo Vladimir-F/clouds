@@ -112,7 +112,7 @@
             document.addEventListener("deviceready", initial, false);
 
             function initial(){
-                document.addEventListener("offline", setToPlay, false);
+                document.addEventListener("offline", offline_script, false);
                 document.addEventListener("resume", restore, false);
                 checkConnection();
                 initWeb();
@@ -124,7 +124,11 @@
                 setTimeout(function(){
                     checkConnection();
                 }, 0);
-                
+
+            function oflline_script() {
+                alert ('stream was stopped due to internet connection lost');
+                checkConnection();
+                setToPlay();
             }
 
         </script>
@@ -160,6 +164,7 @@
             
             function playStream() {
                 initWeb();
+                checkConnection();
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.id = 'playerMyAudio';
 
