@@ -107,8 +107,6 @@
         <script type="text/javascript">
             document.addEventListener("deviceready", initial, false);
             document.addEventListener("offline", setToPlay, false);
-            //document.addEventListener("resume", network_repeat, false);
-
 
             function initail(){
                 checkConnection();
@@ -117,9 +115,6 @@
                 app.initialize();
             }
 
-            function network_repeat() {
-                checkConnection();
-            }
         </script>
         
         <div class="app">
