@@ -106,10 +106,10 @@
 
         <script type="text/javascript">
             document.addEventListener("deviceready", initial, false);
-            document.addEventListener("offline", setToPlay, false);
-            document.addEventListener("resume", restore, false);
 
             function initial(){
+                document.addEventListener("offline", setToPlay, false);
+                document.addEventListener("resume", restore, false);
                 checkConnection();
                 initWeb();
                 window.plugin.backgroundMode.enable();
