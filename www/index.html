@@ -105,14 +105,20 @@
 -->
 
         <script type="text/javascript">
-            document.addEventListener("deviceready", testa, false);
+            document.addEventListener("deviceready", initial, false);
             document.addEventListener("offline", setToPlay, false);
+            document.addEventListener("resume", network_repeat, false);
 
-            function testa(){
-            checkConnection();
-            initWeb();
-            window.plugin.backgroundMode.enable();
-            app.initialize();
+
+            function initail(){
+                checkConnection();
+                initWeb();
+                window.plugin.backgroundMode.enable();
+                app.initialize();
+            }
+
+            function network_repeat() {
+                checkConnection();
             }
         </script>
         
