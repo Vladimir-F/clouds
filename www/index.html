@@ -86,33 +86,12 @@
     </head>
   
     <body>
-<!--
-        <script type="text/javascript">
-            function addLoadEvent (func) {
-                var oldonload = window.onload;
-                if (typeof window.onload != 'function') {
-                    window.onload = func;
-                } else {
-                    window.onload = function() {
-                        if (oldonload) {
-                            oldonload();
-                        }
-                        func();
-                    }
-                }
-            } 
-            
-            addLoadEvent(checkConnection);
-            addLoadEvent(initWeb);
-
-        </script>
--->
 
         <script type="text/javascript">
             document.addEventListener("deviceready", initial, false);
 
             function initial(){
-                document.addEventListener("offline", offline_script, false);
+                document.addEventListener("offline", setToPlay, false);
                 document.addEventListener("resume", restore, false);
                 checkConnection();
                 initWeb();
@@ -124,12 +103,6 @@
                 setTimeout(function(){
                     checkConnection();
                 }, 0);
-
-            function offline_script() {
-                alert ('stream was stopped due to internet connection lost');
-                checkConnection();
-                setToPlay();
-            }
 
         </script>
         
@@ -164,7 +137,7 @@
             
             function playStream() {
                 initWeb();
-                checkConnection();
+                //checkConnection();
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
                 myaudio.id = 'playerMyAudio';
 
