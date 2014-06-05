@@ -107,12 +107,17 @@
         <script type="text/javascript">
             document.addEventListener("deviceready", initial, false);
             document.addEventListener("offline", setToPlay, false);
+            document.addEventListener("resume", restore, false);
 
             function initial(){
                 checkConnection();
                 initWeb();
                 window.plugin.backgroundMode.enable();
                 app.initialize();
+            }
+
+            function restore(){
+                alert('welcome back');
             }
 
         </script>
