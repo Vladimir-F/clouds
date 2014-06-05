@@ -82,7 +82,7 @@
     </head>
   
     <body>
-
+<!--
         <script type="text/javascript">
             function addLoadEvent (func) {
                 var oldonload = window.onload;
@@ -102,7 +102,20 @@
             addLoadEvent(initWeb);
 
         </script>
+-->
 
+        <script type="text/javascript">
+            document.addEventListener("deviceready", testa, false);
+            document.addEventListener("offline", setToPlay, false);
+
+            function testa(){
+            checkConnection();
+            initWeb();
+            //app.initialize();
+            window.plugin.backgroundMode.enable();
+            }
+        </script>
+        
         <div class="app">
             <h1 style="background-color:white;">Clouds Can Speak</h1>
             
@@ -127,8 +140,7 @@
         <div id="log"></div>
         
         <script type="text/javascript">
-            document.addEventListener("deviceready", testa, false);
-            document.addEventListener("offline", setToPlay, false);
+
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
                 myaudio.id = 'playerMyAudio';
@@ -185,7 +197,7 @@
         </script>
 
         <script>
-        function test a(){
+        function testa(){
             alert('im here');
         }
         </script>
@@ -201,12 +213,7 @@
             }
         }
         </script>
-        
-        <script type="text/javascript">
-            app.initialize();
-            window.plugin.backgroundMode.enable();
-            initWeb();
-        </script>
+
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
