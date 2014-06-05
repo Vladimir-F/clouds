@@ -65,18 +65,22 @@
                 states[Connection.CELL]     = 'Cell generic connection';
                 states[Connection.NONE]     = 'No network connection';
                 
-                if (states[networkState] != 'WiFi connection') {
-                    document.getElementById("net_stat").innerHTML= states[networkState];         
-                }
                 if (states[networkState] == 'WiFi connection') {
                     document.getElementById("net_stat").innerHTML= '';
                 }
                 if (states[networkState] == 'Cell 2G connection') {
-                alert (cant_catch);
+                    alert (cant_catch);
+                    document.getElementById("net_stat").innerHTML= states[networkState];         
+                }
+                if (states[networkState] == 'Cell 3G connection') {
+                    document.getElementById("net_stat").innerHTML= states[networkState];
+                }
+                if (states[networkState] == 'Cell 4G connection') {
+                    document.getElementById("net_stat").innerHTML= states[networkState];
                 }
                 if (states[networkState] == 'No network connection') {
-                alert (cant_catch);
-                setToPlay();
+                    alert (cant_catch);
+                    setToPlay();
                 }
             }
             
