@@ -112,7 +112,7 @@
             document.addEventListener("deviceready", initial, false);
 
             function initial(){
-                document.addEventListener("offline", setToPlay, false);
+                document.addEventListener("offline", offline_func, false);
                 document.addEventListener("resume", restore, false);
                 checkConnection();
                 initWeb();
@@ -124,6 +124,11 @@
                 setTimeout(function(){
                     checkConnection();
                 }, 0);
+            }
+
+            function offline_func () {
+                checkConnection();
+                setToPlay();
             }
 
         </script>
