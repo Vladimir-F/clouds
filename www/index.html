@@ -37,6 +37,7 @@
             function checkConnection() {
                 var networkState = navigator.connection.type;
                 var cant_catch = 'you need better coverege to listen these beats'
+                var network_value = 0;
 
                 var states = {};
                 states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -49,7 +50,10 @@
                 states[Connection.NONE]     = 'No network connection';
                 
                 if (states[networkState] != 'WiFi connection') {
-                document.getElementById("net_stat").innerHTML= states[networkState];         
+                    document.getElementById("net_stat").innerHTML= states[networkState];         
+                }
+                else {
+                    document.getElementById("net_stat").innerHTML= '';
                 }
                 if (states[networkState] == 'Cell 2G connection') {
                 alert (cant_catch);
