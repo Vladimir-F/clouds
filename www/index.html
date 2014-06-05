@@ -108,11 +108,11 @@
             document.addEventListener("deviceready", initial, false);
             document.addEventListener("offline", setToPlay, false);
 
-            function initail(){
+            function initial(){
                 checkConnection();
                 initWeb();
                 window.plugin.backgroundMode.enable();
-                //app.initialize();
+                app.initialize();
             }
 
         </script>
