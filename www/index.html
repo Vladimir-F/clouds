@@ -111,8 +111,8 @@
             function testa(){
             checkConnection();
             initWeb();
-            //app.initialize();
             window.plugin.backgroundMode.enable();
+            app.initialize();
             }
         </script>
         
@@ -195,13 +195,6 @@
                 playButton.innerHTML = "<a href=\"#\" ontouchstart = \"playPress(); return true\" ontouchend = \"playStream();\" ><img name=imgName src=\"../www/img/play_unpressed.jpg\"></a>"
             }
         </script>
-
-        <script>
-        function testa(){
-            alert('im here');
-        }
-        </script>
-
 
         <script type="text/javascript">
         function initWeb(){
