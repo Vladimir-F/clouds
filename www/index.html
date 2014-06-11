@@ -91,30 +91,7 @@
         <script>
 
             var onSuccess = function(position) {
-                var lat = parseFloat (position.coords.latitude);
-                var lng = parseFloat (position.coords.longtitude);
-                var geocoder;
-                geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(lat, lng);
-                geocoder.geocode({'latLng': latlng}, function (results, status) {
-                    if status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            var add = results[0].formatted_address;
-                            var value = add.split(",");
-
-                            count=value.length;
-                            country=value[count-1];
-                            city=value[count-3];
-                            alert("city name is:" + city);
-                        }
-                        else {
-                            alert ("address not found");
-                        }
-                    }
-                });
-
-
-
+                
                 alert('Latitude: '          + position.coords.latitude          + '\n' +
                   'Longitude: '         + position.coords.longitude         + '\n' +
                   'Altitude: '          + position.coords.altitude          + '\n' +
