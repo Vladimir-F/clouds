@@ -113,6 +113,21 @@
                 geocoder.geocode({'latLng': latlng}, function(results,status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         alert('Status of Google Geocoding is OK!');
+                                                if (results[0]) {
+                            var add = results[0].formatted_address;
+                            var value = add.split(",");
+
+                            count=value.length;
+                            country=value[count-1];
+                            city=value[count-3];
+                            alert("city name is:" + city);
+                        }
+                        else {
+                            alert ("address not found");
+                        }
+                    }
+                    else {
+                        alert ('Geolocation failed due to: ' + status);
                     }
 
                 });
