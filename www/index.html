@@ -90,11 +90,11 @@
         <script>
 
             var onSuccess = function(position) {
-                var latitude = position.coords.latitude;
-                var longtitude = position.coords.longtitude;
+                var lat = parseFloat (position.coords.latitude);
+                var lng = parseFloat (position.coords.longtitude);
                 var geocoder;
                 geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(latitude, longtitude);
+                var latlng = new google.maps.LatLng(lat, lng);
                 geocoder.geocode({'latLng': latlng}, function (results, status) {
                     if status == google.maps.GeocoderStatus.OK) {
                         if (results[0]) {
@@ -102,7 +102,7 @@
                             var value = add.split(",");
 
                             count=value.length;
-                            country=valuep[count-1];
+                            country=value[count-1];
                             city=value[count-3];
                             alert("city name is:" + city);
                         }
