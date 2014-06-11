@@ -37,7 +37,12 @@
     font-size: 12px;
     position: relative;
     top: 5%;
+}
 
+#country_id {
+    font-size: 12px;
+    position: relative;
+    top: 5%;   
 }
 </style>
 
@@ -106,7 +111,6 @@
 
                 var lat = parseFloat(position.coords.latitude);
                 var lng = parseFloat(position.coords.longitude);
-                alert('latitude is: ' + lat + 'longitude is:' + lng);
                 geocoder = new google.maps.Geocoder();
                 var latlng = new google.maps.LatLng(lat, lng);
 
@@ -119,8 +123,10 @@
 
                             count=value.length;
                             country=value[count-1];
+                            USstate=valee[count-2]
                             city=value[count-3];
                             alert("city name is:" + city);
+                            document.getElementById("country_id").innerHTML = country + ", " + city;
                         }
                         else {
                             alert ("address not found");
@@ -141,6 +147,7 @@
             alert('code: '    + error.code    + '\n' +
             'message: ' + error.message + '\n');
             }
+
 
         </script>
 
@@ -209,6 +216,7 @@
          
         <div id="nowplaying"></div>
         <div id="net_stat"></div>
+        <div id="country_id"></div>
         <div id="stream_status"></div>
         <div id="stream_waiting"></div>
         <div id="stream_loadeddata"></div>
