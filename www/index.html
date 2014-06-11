@@ -122,12 +122,12 @@
                             var value = add.split(",");
 
                             count=value.length;
-                            country=value[count-1];
-                            USstate=value[count-2];
+                            zip=value[count-1];
+                            country=value[count-2];
                             city=value[count-3];
                             sug1=value[count-4]
                             sug2=value[count-5]
-                            alert("city name is:" + city + "sug1 is: " + sug1 + "sug2: "+ sug2 + "USstate is: " + USstate);
+                            //alert("city name is:" + city + "sug1 is: " + sug1 + "sug2: "+ sug2 + "USstate is: " + USstate);
                             document.getElementById("country_id").innerHTML = country + ", " + city;
                         }
                         else {
