@@ -89,6 +89,28 @@
 
         <script>
 
+            var onSuccess = function(position) {
+                alert('Latitude: '          + position.coords.latitude          + '\n' +
+                  'Longitude: '         + position.coords.longitude         + '\n' +
+                  'Altitude: '          + position.coords.altitude          + '\n' +
+                  'Accuracy: '          + position.coords.accuracy          + '\n' +
+                  'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                  'Heading: '           + position.coords.heading           + '\n' +
+                  'Speed: '             + position.coords.speed             + '\n' +
+                  'Timestamp: '         + position.timestamp                + '\n');
+            };
+
+// onError Callback receives a PositionError object
+//
+            function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+            }
+
+        </script>
+
+        <script>
+
             if (document.images) {
                 play_unpressed = new Image();  play_unpressed.src ="../www/img/play_unpressed.jpg";
                 play_pressed = new Image();  play_pressed.src = "../www/img/play_pressed.jpg";
@@ -116,6 +138,7 @@
                 document.addEventListener("offline", offline_func, false);
                 document.addEventListener("resume", restore, false);
                 checkConnection();
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 initWeb();
                 window.plugin.backgroundMode.enable();
                 app.initialize();
