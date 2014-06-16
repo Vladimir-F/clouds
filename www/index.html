@@ -44,6 +44,13 @@
     position: relative;
     top: 5%;   
 }
+
+#log {
+    font-size: 12px;
+    position: relative;
+    top: 5%;   
+}
+
 </style>
 
     <head>
@@ -100,15 +107,6 @@
 
             var onSuccess = function(position) {
 
-//                alert('Latitude: '          + position.coords.latitude          + '\n' +
-//                  'Longitude: '         + position.coords.longitude         + '\n' +
-//                  'Altitude: '          + position.coords.altitude          + '\n' +
-//                  'Accuracy: '          + position.coords.accuracy          + '\n' +
-//                  'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-//                  'Heading: '           + position.coords.heading           + '\n' +
-//                  'Speed: '             + position.coords.speed             + '\n' +
-//                  'Timestamp: '         + position.timestamp                + '\n');
-
                 var lat = parseFloat(position.coords.latitude);
                 var lng = parseFloat(position.coords.longitude);
                 geocoder = new google.maps.Geocoder();
@@ -116,7 +114,6 @@
 
                 geocoder.geocode({'latLng': latlng}, function(results,status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        alert('Status of Google Geocoding is OK!');
                                                 if (results[0]) {
                             var add = results[0].formatted_address;
                             var value = add.split(",");
@@ -130,13 +127,13 @@
                             //alert("city name is:" + city + "sug1 is: " + sug1 + "sug2: "+ sug2 + "USstate is: " + USstate);
                             document.getElementById("country_id").innerHTML = country + ", " + city;
                         }
-                        else {
-                            alert ("address not found");
-                        }
+//                        else {
+  //                          alert ("address not found");
+    //                    }
                     }
-                    else {
-                        alert ('Geolocation failed due to: ' + status);
-                    }
+      //              else {
+        //                alert ('Geolocation failed due to: ' + status);
+          //          }
 
                 });
 
@@ -286,10 +283,10 @@
         <script type="text/javascript">
         function initWeb(){
             var socket = new WebSocket("ws://cloudscanspeak.net:1982/websocket");
-            socket.onopen = function (event) {
+                socket.onopen = function (event) {
             }
-            socket.onmessage = function (event){
-            document.getElementById("nowplaying").innerHTML = event.data;
+                socket.onmessage = function (event){
+                document.getElementById("nowplaying").innerHTML = event.data;
             }
         }
         </script>
