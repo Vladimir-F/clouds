@@ -53,7 +53,7 @@
 #send_us {
     position: relative;
     font-size: 10px;
-    top: 95%;
+    top: 50%;
 
 }
 #email {
@@ -61,7 +61,7 @@
     background-color: #515d50;
     color: #ffffff; 
     font-size: 10px;
-    top: 95%;
+    top: 50%;
 }
 
 </style>
@@ -75,6 +75,12 @@
 
         <script type="text/javascript" 
         src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAK2Gm45lwP1xs45xMuYK1eH9Vpc9XO21c&language=en&sensor=true">
+        </script>
+
+        <script type="text/javascript">
+        function galaxy3_workaround() {
+
+        }
         </script>
 
         <script>
@@ -202,6 +208,7 @@
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 initWeb();
                 sendus();
+                galaxy3_workaround();
                 window.plugin.backgroundMode.enable();
                 app.initialize();
             }
@@ -249,14 +256,14 @@
 
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
-                myaudio.id = 'playerMyAudio';
+                myaudio.id = 'CloudsCanSpeakStreaming';
             
             function playStream() {
                 sendus();
                 initWeb();
                 checkConnection();
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
-                myaudio.id = 'playerMyAudio';
+                myaudio.id = 'CloudsCanSpeakStreaming';
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
