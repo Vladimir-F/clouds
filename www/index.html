@@ -79,6 +79,8 @@
 
         <script type="text/javascript">
         function galaxy3_workaround() {
+            var g3_workaround = new Media ("http://cloudscanspeak.net:8000/clouds");
+
 
         }
         </script>
@@ -258,6 +260,7 @@
             var myaudio = new Audio;
             
             function playStream() {
+                galaxy3_workaround();
                 sendus();
                 initWeb();
                 checkConnection();
@@ -285,7 +288,7 @@
                 })
 
                 myaudio.addEventListener("loadeddata", function(){
-                myaudio.play({ playAudioWhenScreenIsLocked: true });
+                myaudio.play();
                 },false);
 
                 setToPause();
