@@ -46,9 +46,22 @@
 }
 
 #log {
-    font-size: 12px;
+    font-size: 13px;
     position: relative;
     top: 5%;   
+}
+#send_us {
+    position: relative;
+    font-size: 10px;
+    top: 95%;
+
+}
+#email {
+    position: relative;
+    background-color: #515d50;
+    color: #ffffff; 
+    font-size: 10px;
+    top: 95%;
 }
 
 </style>
@@ -150,6 +163,13 @@
 
         </script>
 
+        <script type="text/javascript">
+        function sendus() {
+            document.getElementById("send_us").innerHTML = "SEND US YOUR DEEPDUB MIXES";
+            document.getElementById("email").innerHTML = "CLOUDSCANSPEAK [AT] GMAIL COM"
+        }
+        </script>
+
         <script>
 
             if (document.images) {
@@ -181,6 +201,7 @@
                 checkConnection();
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 initWeb();
+                sendus();
                 window.plugin.backgroundMode.enable();
                 app.initialize();
             }
@@ -221,7 +242,9 @@
         <div id="stream_loadeddata"></div>
         <div id="show_counter"></div>
         <div id="log"></div>
-        
+        <div id="send_us"></div>
+        <div id="email"></div>
+
         <script type="text/javascript">
 
             var music_player = document.getElementById("play_button");
@@ -229,6 +252,7 @@
                 myaudio.id = 'playerMyAudio';
             
             function playStream() {
+                sendus();
                 initWeb();
                 checkConnection();
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
