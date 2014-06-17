@@ -261,8 +261,8 @@
                 sendus();
                 initWeb();
                 checkConnection();
+                myaudio.id = 'CloudsRadioPlayer';
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
-                myaudio.play();
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
