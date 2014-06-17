@@ -256,14 +256,13 @@
 
             var music_player = document.getElementById("play_button");
             var myaudio = new Audio;
-                myaudio.id = 'CloudsCanSpeakStreaming';
             
             function playStream() {
                 sendus();
                 initWeb();
                 checkConnection();
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
-                myaudio.id = 'CloudsCanSpeakStreaming';
+                myaudio.play();
 
                 myaudio.addEventListener("loadstart", function(){
                 var todoItems = document.getElementById('stream_status');
