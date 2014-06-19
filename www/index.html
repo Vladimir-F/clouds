@@ -77,14 +77,6 @@
         src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAK2Gm45lwP1xs45xMuYK1eH9Vpc9XO21c&language=en&sensor=true">
         </script>
 
-        <script type="text/javascript">
-        function galaxy3_workaround() {
-            var g3_workaround = new Media ("http://cloudscanspeak.net:8000/clouds");
-
-
-        }
-        </script>
-
         <script>
         
             function checkConnection() {
@@ -210,7 +202,7 @@
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 initWeb();
                 sendus();
-                galaxy3_workaround();
+//                galaxy3_workaround();
                 window.plugin.backgroundMode.enable();
                 app.initialize();
             }
@@ -260,7 +252,7 @@
             var myaudio = new Audio;
             
             function playStream() {
-                galaxy3_workaround();
+//                galaxy3_workaround();
                 sendus();
                 initWeb();
                 checkConnection();
