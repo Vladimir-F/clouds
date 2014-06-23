@@ -95,6 +95,7 @@
                 states[Connection.CELL_4G]  = 'Cell 4G connection';
                 states[Connection.CELL]     = 'Cell generic connection';
                 states[Connection.NONE]     = 'No network connection';
+
                 
                 if (states[networkState] == 'WiFi connection') {
                     document.getElementById("net_stat").innerHTML= '';
@@ -114,6 +115,7 @@
                     document.getElementById("net_stat").innerHTML= states[networkState];
                     setToPlay();
                 }
+//            return network_value;
             }
             
         </script>
