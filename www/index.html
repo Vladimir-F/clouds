@@ -200,10 +200,8 @@
             function initial(){
                 document.addEventListener("offline", offline_func, false);
                 document.addEventListener("resume", restore, false);
-                alert ('до чек конн');
                 checkConnection();
-                alert ('после чек конн');
-//                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 initWeb();
 //                sendus();
 //                galaxy3_workaround();
