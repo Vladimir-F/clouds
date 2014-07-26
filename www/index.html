@@ -19,55 +19,6 @@
 -->
 <html>
 
-<style>
-#nowplaying { 
-    position: relative;
-    top:5%;
-    background-color: #4f5246; 
-    color: #ffffff;
-    font-size: 12px;
-}
-#stream_status {
-    font-size: 12px;
-    position: relative;
-    top: 10%;
-}
-
-#net_stat {
-    font-size: 12px;
-    position: relative;
-    top: 5%;
-}
-
-#country_id {
-    font-size: 12px;
-    position: relative;
-    top: 5%;   
-}
-
-#log {
-    font-size: 13px;
-    position: relative;
-    top: 5%;   
-}
-#send_us {
-    position: fixed;
-    font-size: 10px;
-    text-align: center;
-    top: 50%;
-
-
-}
-#email {
-    position: relative;
-    background-color: #515d50;
-    color: #ffffff; 
-    font-size: 10px;
-    top: 50%;
-}
-
-</style>
-
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -196,7 +147,7 @@
     <body>
 
         <script type="text/javascript">
-            document.addEventListener("deviceready", initial, false);
+            document.addEventListener("onload", initial, false);
 
             function initial(){
                 document.addEventListener("offline", offline_func, false);
@@ -223,29 +174,35 @@
 
         </script>
         
-        <div class="app">
+        <div class="head">
             <h1 style="background-color:white;">Clouds Can Speak</h1>
-            
-       <div id="play_button">
+        </div>
+
+        <div class="infozone">
+            <div id="nowplaying"></div>
+            <div id="net_stat"></div>
+            <div id="country_id"></div>
+            <div id="stream_status"></div>
+            <div id="stream_waiting"></div>
+            <div id="stream_loadeddata"></div>
+            <div id="show_counter"></div>
+            <div id="log"></div>
+            <div id="send_us"></div>
+            <div id="email"></div>
+        </div>
+
+        <div class="actionzone">
+            <div id="play_button">
               <a href="#" 
               ontouchstart = "playPress(); return true;"
               ontouchend = "playStream();"
               ><img name=imgName
               alt="This image changes when you press the mouse button!"
               src="../www/img/play_unpressed.jpg"
-              ></a>
+            ></a>
         </div>        
-         
-        <div id="nowplaying"></div>
-        <div id="net_stat"></div>
-        <div id="country_id"></div>
-        <div id="stream_status"></div>
-        <div id="stream_waiting"></div>
-        <div id="stream_loadeddata"></div>
-        <div id="show_counter"></div>
-        <div id="log"></div>
-        <div id="send_us"></div>
-        <div id="email"></div>
+
+
 
         <script type="text/javascript">
 
