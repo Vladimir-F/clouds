@@ -202,7 +202,7 @@
             function initial(){
                 document.addEventListener("offline", offline_func, false);
                 document.addEventListener("resume", restore, false);
-                checkConnection();
+//                checkConnection();
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
                 initWeb();
                 sendus();
