@@ -121,7 +121,7 @@
         <script>
 
             var onSuccess = function(position) {
-
+                alert("ok");
                 var lat = parseFloat(position.coords.latitude);
                 var lng = parseFloat(position.coords.longitude);
                 geocoder = new google.maps.Geocoder();
@@ -138,8 +138,8 @@
                             zip=value[count-1];
                             country=value[count-2];
                             city=value[count-3];
-                            sug1=value[count-4]
-                            sug2=value[count-5]
+                            sug1=value[count-4];
+                            sug2=value[count-5];
                             //alert("city name is:" + city + "sug1 is: " + sug1 + "sug2: "+ sug2 + "USstate is: " + USstate);
                             document.getElementById("country_id").innerHTML = country + ", " + city;
                         }
