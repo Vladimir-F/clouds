@@ -142,25 +142,25 @@
                             //alert("city name is:" + city + "sug1 is: " + sug1 + "sug2: "+ sug2 + "USstate is: " + USstate);
                             document.getElementById("country_id").innerHTML = country + ", " + city;
                         }
-//                        else {
-  //                          alert ("address not found");
-    //                    }
+                        else {
+                            alert ("address not found");
+                        }
                     }
-      //              else {
-        //                alert ('Geolocation failed due to: ' + status);
-          //          }
+                    else {
+                        alert ('Geolocation failed due to: ' + status);
+                    }
 
                 });
 
 
             };
 
-// onError Callback receives a PositionError object
-//
-//            function onError(error) {
-//            alert('code: '    + error.code    + '\n' +
-//            'message: ' + error.message + '\n');
-//            }
+ onError Callback receives a PositionError object
+
+            function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+            }
 
 
         </script>
@@ -252,6 +252,7 @@
             var myaudio = new Audio;
             
             function playStream() {
+                checkConnection();
                 myaudio.id = 'CloudsRadioPlayer';
                 myaudio.src = 'http://cloudscanspeak.net:8000/clouds';
 
