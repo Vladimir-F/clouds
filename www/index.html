@@ -200,7 +200,9 @@
             function initial(){
                 document.addEventListener("offline", offline_func, false);
                 document.addEventListener("resume", restore, false);
+                alert ('до чек конн');
                 checkConnection();
+                alert ('после чек конн');
 //                navigator.geolocation.getCurrentPosition(onSuccess, onError);
 //                initWeb();
 //                sendus();
@@ -229,7 +231,6 @@
               <a href="#" 
               ontouchstart = "playPress(); return true;"
               ontouchend = "playStream();"
-
               ><img name=imgName
               alt="This image changes when you press the mouse button!"
               src="../www/img/play_unpressed.jpg"
