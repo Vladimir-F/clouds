@@ -30,7 +30,8 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-attachment:fixed;
-    background-color: #1f1f1f;
+    background-image: url(../img/icon-background.png);
+    background-size: cover;
     font-family:'Open Sans Condensed', sans-serif;
     font-size:12px;
     height:100%;
