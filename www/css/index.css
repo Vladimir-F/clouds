@@ -58,7 +58,10 @@ body {
 }
 
 .infozone {
-    background-color: rgba(255,255,255,0.5);
+    background-color: white;
+    -webkit-opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter:alpha(opacity=50);
     position:absolute;             /* position in the center of the screen */
     top:100px;
     height:20%;                   /* text area height */
@@ -70,7 +73,10 @@ body {
 }
 
 .actionzone {
-    background-color: rgba(255,255,255,0.3);
+    background-color: white;
+    -webkit-opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter:alpha(opacity=50);
     position:absolute;             /* position in the center of the screen */
     bottom:5%;
     height:150px;                   /* text area height */
