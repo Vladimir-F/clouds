@@ -74,6 +74,9 @@ body {
 
 .actionzone {
     background-color: black;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    filter:alpha(opacity=100);
     position:absolute;             /* position in the center of the screen */
     bottom:0%;
     height:150px;                   /* text area height */
