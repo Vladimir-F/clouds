@@ -31,6 +31,8 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-attachment:fixed;
     font-family:'Open Sans Condensed', sans-serif;
+    background-image: url(../img/icon-background.png);
+    background-size: cover;
     font-size:12px;
     height:100%;
     margin:0px;
