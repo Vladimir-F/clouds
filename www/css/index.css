@@ -29,9 +29,10 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#ffffff;
+    background:url(../img/icon-background.png) no-repeat center top;
+    background-size: cover;
     background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family:'Open Sans Condensed', sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
@@ -42,22 +43,24 @@ body {
 
 /* Portrait layout (default) */
 .head {
-    background:url(../img/logo.png) no-repeat center 20%; /* 170px x 200px */
-    background-color: #000000;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: #1f1f1f;
     position:absolute;             /* position in the center of the screen */
     top:0%;
-    height:10%;                   /* text area height */
+    height:100px;                   /* text area height */
     width:100%;                   /* text area width */
     text-align:center;
-    padding:80px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
 
 .infozone {
-    background-color: #98bcab;
+    background-color: rgba(255,255,255,0.5);
     position:absolute;             /* position in the center of the screen */
-    top:20%;
+    top:100px;
     height:20%;                   /* text area height */
     width:100%;                   /* text area width */
     text-align:left;
@@ -67,7 +70,7 @@ body {
 }
 
 .actionzone {
-    background-color: #98b2bc;
+    background-color: rgba(255,255,255,0.3);
     position:absolute;             /* position in the center of the screen */
     bottom:5%;
     height:150px;                   /* text area height */
