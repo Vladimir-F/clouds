@@ -46,7 +46,7 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
-    background-color: #1f1f1f;
+    background-color: black;
     position:absolute;             /* position in the center of the screen */
     top:0%;
     height:100px;                   /* text area height */
@@ -64,7 +64,7 @@ body {
     filter:alpha(opacity=50);
     position:absolute;             /* position in the center of the screen */
     top:100px;
-    height:20%;                   /* text area height */
+    height:300px;                   /* text area height */
     width:100%;                   /* text area width */
     text-align:left;
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
@@ -73,12 +73,9 @@ body {
 }
 
 .actionzone {
-    background-color: white;
-    -webkit-opacity: 0.5;
-    -moz-opacity: 0.5;
-    filter:alpha(opacity=50);
+    background-color: black;
     position:absolute;             /* position in the center of the screen */
-    bottom:5%;
+    bottom:0%;
     height:150px;                   /* text area height */
     width:100%;                   /* text area width */
     text-align:center;
