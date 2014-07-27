@@ -55,6 +55,7 @@ body {
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
+    z-index: 1;
 }
 
 .infozone {
@@ -67,6 +68,7 @@ body {
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
+    z-index: 2;
 }
 
 .actionzone {
@@ -79,6 +81,7 @@ body {
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
+    z-index: 3;
 }
 
 /* Landscape layout (with min-width) */
